@@ -1,0 +1,311 @@
+{
+    "formData":{
+       "selected1":null,
+       "selected2":null,
+       "selected3":null,
+       "options1":[
+          {
+             "value":null,
+             "text":"Selecciona una pista",
+             "disabled":false,
+             "iconClass":""
+          },
+          {
+             "value":"1-1",
+             "text":"EMF nivel 5",
+             "disabled":false,
+             "iconClass":"emf"
+          },
+          {
+             "value":"1-2",
+             "text":"Escritura fantasma",
+             "disabled":false,
+             "iconClass":"write"
+          },
+          {
+             "value":"1-3",
+             "text":"Huellas dactilares",
+             "disabled":false,
+             "iconClass":"handprint"
+          },
+          {
+             "value":"1-4",
+             "text":"Orbes",
+             "disabled":false,
+             "iconClass":"orbes"
+          },
+          {
+             "value":"1-5",
+             "text":"Temperatura bajo cero",
+             "disabled":false,
+             "iconClass":"temp"
+          },
+          {
+             "value":"1-6",
+             "text":"Spirit Box",
+             "disabled":false,
+             "iconClass":"spititbox"
+          },
+          {
+             "value":"1-7",
+             "text":"Proyector D.O.T.S",
+             "disabled":false,
+             "iconClass":"proyector"
+          }
+       ],
+       "options2":[
+          {
+             "value":null,
+             "text":"Selecciona una pista",
+             "disabled":false,
+             "iconClass":""
+          },
+          {
+             "value":"2-1",
+             "text":"EMF nivel 5",
+             "disabled":false,
+             "iconClass":"emf"
+          },
+          {
+             "value":"2-2",
+             "text":"Escritura fantasma",
+             "disabled":false,
+             "iconClass":"write"
+          },
+          {
+             "value":"2-3",
+             "text":"Huellas dactilares",
+             "disabled":false,
+             "iconClass":"handprint"
+          },
+          {
+             "value":"2-4",
+             "text":"Orbes",
+             "disabled":false,
+             "iconClass":"orbes"
+          },
+          {
+             "value":"2-5",
+             "text":"Temperatura bajo cero",
+             "disabled":false,
+             "iconClass":"temp"
+          },
+          {
+             "value":"2-6",
+             "text":"Spirit Box",
+             "disabled":false,
+             "iconClass":"spititbox"
+          },
+          {
+             "value":"2-7",
+             "text":"Proyector D.O.T.S",
+             "disabled":false,
+             "iconClass":"proyector"
+          }
+       ],
+       "options3":[
+          {
+             "value":null,
+             "text":"Selecciona una pista",
+             "disabled":false,
+             "iconClass":""
+          },
+          {
+             "value":"3-1",
+             "text":"EMF nivel 5",
+             "disabled":false,
+             "iconClass":"emf"
+          },
+          {
+             "value":"3-2",
+             "text":"Escritura fantasma",
+             "disabled":false,
+             "iconClass":"write"
+          },
+          {
+             "value":"3-3",
+             "text":"Huellas dactilares",
+             "disabled":false,
+             "iconClass":"handprint"
+          },
+          {
+             "value":"3-4",
+             "text":"Orbes",
+             "disabled":false,
+             "iconClass":"orbes"
+          },
+          {
+             "value":"3-5",
+             "text":"Temperatura bajo cero",
+             "disabled":false,
+             "iconClass":"temp"
+          },
+          {
+             "value":"3-6",
+             "text":"Spirit Box",
+             "disabled":false,
+             "iconClass":"spititbox"
+          },
+          {
+             "value":"3-7",
+             "text":"Proyector D.O.T.S",
+             "disabled":false,
+             "iconClass":"proyector"
+          }
+       ]
+    },
+    "tableData":{
+       "fields":[
+          "Tipos",
+          "Fortaleza",
+          "Debilidad",
+          "Pista"
+       ],
+       "items":[
+          {
+             "isActive":true,
+             "pistaId":"1-6-2",
+             "tipo":"ESPÍRITU",
+             "fortaleza":"Ninguno",
+             "debilidad":"Las varitas de incienso impiden que ataque durante un tiempo",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Spirit Box' class='spititbox'></i> <i data-title='Escritura fantasma' class='write'></i>",
+             "img": "f-espi"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-6-7",
+             "tipo":"ESPECTRO",
+             "fortaleza":"No deja pisadas rastreables en el suelo",
+             "debilidad":"Reaccion tóxica ante la sal",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Spirit Box' class='spititbox'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-espe"
+          },
+          {
+             "isActive":true,
+             "pistaId":"6-3-7",
+             "tipo":"ENTE",
+             "fortaleza":"Disminuye mucho la cordura de los jugadores que lo miran",
+             "debilidad":"Desaparece temporalmente al hacerle una fotografía",
+             "pista":"<i data-title='Spirit Box' class='spititbox'></i> <i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-ente"
+          },
+          {
+             "isActive":true,
+             "pistaId":"6-3-2",
+             "tipo":"POLTERGEIST",
+             "fortaleza":"Puede lanzar muchos objetos a la vez",
+             "debilidad":"Prácticamente Inútil cuando la habitación está vacía",
+             "pista":"<i data-title='Spirit Box' class='spititbox'></i> <i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Escritura fantasma' class='write'></i>",
+             "img": "f-polt"
+          },
+          {
+             "isActive":true,
+             "pistaId":"3-4-7",
+             "tipo":"BANSHEE",
+             "fortaleza":"Marca a los jugadores de uno en uno",
+             "debilidad":"Temen al crucifijo y se vuelven menos agresivas",
+             "pista":"<i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Orbes' class='orbes'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-bans"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-3-5",
+             "tipo":"JINN",
+             "fortaleza":"Es más rápido cuando está lejos de su víctima",
+             "debilidad":"Si el cuadro eléctrico está apagado no puede usar su habilidad",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Temperatura bajo cero' class='temp'></i>",
+             "img": "f-jinn"
+          },
+          {
+             "isActive":true,
+             "pistaId":"6-4-2",
+             "tipo":"PESADILLA",
+             "fortaleza":"Más probabilidad de ataque a oscuras",
+             "debilidad":"Menos probabilidad de ataque cuando hay luz",
+             "pista":"<i data-title='Spirit Box' class='spititbox'></i> <i data-title='Orbes' class='orbes'></i> <i data-title='Escritura fantasma' class='write'></i>",
+             "img": "f-pesa"
+          },
+          {
+             "isActive":true,
+             "pistaId":"4-2-5",
+             "tipo":"REVENANT",
+             "fortaleza":"Se mueve a mayor velocidad cuando va tras su presa",
+             "debilidad":"Se vuelve lento cuando su presa se esconde",
+             "pista":"<i data-title='Orbes' class='orbes'></i> <i data-title='Escritura fantasma' class='write'></i> <i data-title='Temperatura bajo cero' class='temp'></i>",
+             "img": "f-reve"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-2-5",
+             "tipo":"SOMBRA",
+             "fortaleza":"Es tímida y difícil de encontrar",
+             "debilidad":"No ataca cuando hay varios jugadores juntos",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Escritura fantasma' class='write'></i> <i data-title='Temperatura bajo cero' class='temp'></i>",
+             "img": "f-somb"
+          },
+          {
+             "isActive":true,
+             "pistaId":"3-2-5",
+             "tipo":"DEMONIO",
+             "fortaleza":"Son los fantasmas que atacan con mayor frecuencia",
+             "debilidad":"Si hacemos preguntas exitosas con la Ouija no perderemos cordura",
+             "pista":"<i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Escritura fantasma' class='write'></i> <i data-title='Temperatura bajo cero' class='temp'></i>",
+             "img": "f-demo"
+          },
+          {
+             "isActive":true,
+             "pistaId":"4-5-7",
+             "tipo":"YUREI",
+             "fortaleza":"Dañan especialmente la cordura de los jugadores",
+             "debilidad":"Las varitas de incienso evitan su presencia durante un gran tiempo",
+             "pista":"<i data-title='Orbes' class='orbes'></i> <i data-title='Temperatura bajo cero' class='temp'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-yure"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-5-7",
+             "tipo":"ONI",
+             "fortaleza":"Mientras más jugadores hay cerca de él se vuelve más activo y agresivo",
+             "debilidad":"Al ser más activos son más fáciles de identificar",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Temperatura bajo cero' class='temp'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-oni"
+          },
+          {
+             "isActive":true,
+             "pistaId":"3-4-5",
+             "tipo":"Hantu",
+             "fortaleza":"Mas rapido con temperaturas bajas",
+             "debilidad":"Más lento con temperaturas calientes",
+             "pista":"<i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Orbes' class='orbes'></i> <i data-title='Temperatura bajo cero' class='temp'></i>",
+             "img": "f-hant"
+          },
+          {
+             "isActive":true,
+             "pistaId":"6-4-7",
+             "tipo":"Yokai",
+             "fortaleza":"Hablar cerca de él aumenta las posibilidades de que ataque",
+             "debilidad":"Atacando, solo escucha las voces cercanas a él",
+             "pista":"<i data-title='Spirit Box' class='spititbox'></i> <i data-title='Orbes' class='orbes'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-yoka"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-3-7",
+             "tipo":"Goryo",
+             "fortaleza":"Se mostrará en una camara solo si no hay nadie cerca",
+             "debilidad":"Raramente se les ve lejos del lugar donde murieron",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Proyector D.O.T.S' class='proyector'></i>",
+             "img": "f-gory"
+          },
+          {
+             "isActive":true,
+             "pistaId":"1-3-2",
+             "tipo":"Myling",
+             "fortaleza":"Son silenciosos atacando",
+             "debilidad":"Suelen hacer muscho ruido",
+             "pista":"<i data-title='EMF nivel 5' class='emf'></i> <i data-title='Huellas dactilares' class='handprint'></i> <i data-title='Escritura fantasma' class='write'></i>",
+             "img": "f-myli"
+          }
+       ]
+    }
+}
