@@ -1,143 +1,22 @@
 <template>
   <div id="app">
-    <div class="container-md">
-      <h1 class="app-title">Guía Phasmaphobia</h1>
-      
-      <Form
-        :formData="formData"
-        @changeSelected1="changeSelected1"
-        @changeSelected2="changeSelected2"
-        @changeSelected3="changeSelected3"
-      />
-      <Cards :tableData="tableData"/>
-      <!-- <Table :tableData="tableData"/> -->
-    </div>
+    <Menu />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Form from './components/Form.vue'
-// import Table from './components/Table.vue'
-import Cards from './components/Cards.vue'
-import json from './data/data.json'
+import Menu from './components/Menu.vue'
 
 export default {
   name: 'App',
   components: {
-    Form,
-    // Table,
-    Cards
+    Menu
   },
   data() {
-    return {
-      formData: json.formData,
-      tableData: json.tableData
-    }
+    return {}
   },
-  methods: {
-    changeSelected1 (childrenData) {
-      this.resetDisbledOptions(childrenData.options2, childrenData.selected1, '1')
-      this.resetDisbledOptions(childrenData.options3, childrenData.selected1, '1')
-      this.disbledOptions(childrenData.options2, childrenData.selected1)
-      this.disbledOptions(childrenData.options3, childrenData.selected1)
-      this.showtipos(1)
-    },
-    changeSelected2 (childrenData) {
-      this.resetDisbledOptions(childrenData.options3, childrenData.selected1, '2')
-      this.disbledOptions(childrenData.options3, childrenData.selected2)
-      this.showtipos(2)
-    },
-    changeSelected3 () {
-      this.showtipos(3)
-    },
-    disbledOptions (options, selected) {
-      if (selected) {
-
-        let opt = 0
-        options.find(function(option, index) {
-          if ( option.value) {
-            const selectedId = selected.split('-')
-            const optionId = option.value.split('-')
-            if(optionId[1] === selectedId[1]) {
-              opt = index
-            }
-          }
-        })
-        options[opt].disabled = true
-      }
-    },
-    resetDisbledOptions (options, selected, selectInit) {
-      if (selected) {
-        options.forEach(option => {
-          if ( option.value) {
-            const selectedId = selected.split('-')
-            const optionId = option.value.split('-')
-            if (optionId[1] !== selectedId[1]) {
-              option.disabled = false
-            }
-          }
-        })
-      }
-
-
-      if (selectInit === '1') {
-        this.formData.selected2 = null
-        this.formData.selected3 = null
-      } else {
-        this.formData.selected3 = null
-      }
-    },
-    showtipos (numberSelected) {
-      let condition = false
-      let pista1 = ''
-      let pista2 = ''
-      let pista3 = ''
-
-      this.tableData.items.forEach(item => {
-        if (numberSelected === 1) {
-          if (this.formData.selected1) {
-            pista1 = this.formData.selected1.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1
-          } else {
-            condition = true
-          }
-        } else if (numberSelected === 2) {
-          if (this.formData.selected1 && this.formData.selected2) {
-            pista1 = this.formData.selected1.split('-')
-            pista2 = this.formData.selected2.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1 && item.pistaId.indexOf(pista2[1]) > -1 
-          } else if (this.formData.selected1 && !this.formData.selected2) {
-            pista1 = this.formData.selected1.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1
-          } else {
-            condition = true
-          }
-        } else {
-          if (this.formData.selected1 && this.formData.selected2 && this.formData.selected3) {
-            pista1 = this.formData.selected1.split('-')
-            pista2 = this.formData.selected2.split('-')
-            pista3 = this.formData.selected3.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1 && item.pistaId.indexOf(pista2[1]) > -1 && item.pistaId.indexOf(pista3[1]) > -1
-          } else if (this.formData.selected1 && this.formData.selected2) {
-            pista1 = this.formData.selected1.split('-')
-            pista2 = this.formData.selected2.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1 && item.pistaId.indexOf(pista2[1]) > -1 
-          } else if (this.formData.selected1 && !this.formData.selected2) {
-            pista1 = this.formData.selected1.split('-')
-            condition = item.pistaId.indexOf(pista1[1]) > -1
-          } else {
-            condition = true
-          }
-        } 
-
-        if (condition) {
-          item.isActive = true
-        } else {
-          item.isActive = false
-        }
-      })
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -158,7 +37,6 @@ export default {
 i {
   font-family: 'Standard Icons';
   font-style: normal;
-  width: 20px;
   display: inline-block;
   text-align: center;
   position: relative;
@@ -226,11 +104,37 @@ i {
       content: '\E803';
     }
   }
+  &.menu {
+    &::before {
+      content: '\E804';
+    }
+  }
+  &.close {
+    &::before {
+      content: '\E805';
+    }
+  }
+  &.reset {
+    &::before {
+      content: '\E806';
+    }
+  }
+  &.add {
+    &::before {
+      content: '\F234';
+    }
+  }
+  &.remove {
+    &::before {
+      content: '\f235';
+    }
+  }
 }
 
 #app {
   font-family: 'Cutive Mono', monospace;
   color: #fff;
+  position: relative;
 }
 
 body {
@@ -244,6 +148,19 @@ h1 {
 
 h2 {
   text-align: left;
+}
+
+h3 {
+  border-bottom: 1px dashed #808080;
+}
+
+.link,
+.router-link-active {
+  color: #fff;
+
+  &:hover {
+    color: #fff;
+  }
 }
 
 .app-title {
@@ -263,6 +180,7 @@ h2 {
     position: static;
     margin-top: 8px;
     margin-bottom: 16px;
+    padding: 8px 0 16px;
   }
 
   &::after {
