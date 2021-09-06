@@ -72,7 +72,7 @@ export default {
 <style lang="scss">
 .m-menu {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   right: 0;
   top: 0;
 

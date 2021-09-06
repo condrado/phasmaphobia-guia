@@ -186,7 +186,7 @@ export default {
   width: 100%;
   background-color: #222;
   background-image: url('../assets/images/bg-page.jpg');
-  z-index: 1;
+  z-index: 2;
   padding: 0 12px;
 
   @media (min-width: 768px) {

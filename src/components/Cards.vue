@@ -8,11 +8,11 @@
       </div>
     </div>
     <div class="blog row" v-bind:class="{ list: isList }">
-      <template v-for="item in items">
+      <template v-for="(item) in items">
         <div class="blog__card col-12 col-md-6 col-lg-4" :key=item.tipo v-if="item.isActive">
           <div class="blog__container" >
             <h3 class="blog__title col-12 text-center">{{item.tipo}}</h3>
-            <div class="blog__figure col-4">
+            <div class="blog__figure col-4" v-bind:class="{patch1: item.patch == 1, patch2: item.patch == 2, patch3: item.patch == 3}">
               <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
               <p class="paragraph  text-center" v-html="item.pista"></p>
             </div>
@@ -56,6 +56,20 @@ export default {
     changeFormatList () {
       this.isList = true
       localStorage.isList = true;
+    },
+    classObject (index) {
+      let patch = 'patch1'
+      const numero = parseInt(index)
+
+      if(numero % 2 == 0) {
+        return {
+          'patch2': patch
+        }
+      } else {
+        return {
+          'patch1': patch
+        }
+      }
     }
   },
   mounted() {
@@ -71,7 +85,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 190px;
     left: 0;
     width: 100%;
@@ -155,22 +169,57 @@ export default {
   }
 
   &__figure {
-     margin-bottom: 0; 
+    margin-bottom: 0; 
+    position: relative;
 
-     p {
-       margin: 16px 0 0;
-       font-size: 20px;
+    p {
+      margin: 16px 0 0;
+      font-size: 20px;
 
-       i {
-         &:first-child {
-           &:hover {
-             &::after {
-               left: -72px;
-             }
-           }
-         }
-       }
-     }
+      i {
+        &:first-child {
+          &:hover {
+            &::after {
+              left: -72px;
+            }
+          }
+        }
+      }
+    }
+
+    &.patch1,
+    &.patch2,
+    &.patch3 {
+      &:before {
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        display: block;
+        position: absolute;
+        background-size: 100%;
+        height: 100%;
+      }
+    }
+
+    &.patch1 {
+      &:before {
+        background-image: url('../assets/images/patch.png');
+      }
+    }
+
+    &.patch2 {
+      &:before {
+        background-image: url('../assets/images/patch2.png');
+      }
+    }
+
+    &.patch3 {
+      &:before {
+        background-image: url('../assets/images/patch3.png');
+      }
+    }
   }
 
   &__desc-1 {
@@ -209,6 +258,13 @@ export default {
         width: auto;
         display: flex;
         align-items: center;
+
+        &.patch1,
+        &.patch2 {
+          &::before {
+            display: none;;
+          }
+        }
 
         img {
           display: none;

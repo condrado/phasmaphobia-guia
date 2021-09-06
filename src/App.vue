@@ -174,7 +174,7 @@ h3 {
   background-color: #222;
   background-image: url('assets/images/bg-page.jpg');
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
   @media (min-width: 768px) {
     position: static;

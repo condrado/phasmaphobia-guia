@@ -2,59 +2,76 @@
     <div class="container-md">
         <h1 class="app-title">Reuniendo pruebas</h1>
         <dir class="m-content">
-            <h2>Instrumentos</h2>
-            <h3>Incienso</h3>
-            <div class="m-content__p">
-                <figure>
-                    <img class="m-content__img" :src="require(`../assets/images/h-inci.jpg`)" alt="f"/>
-                </figure>
-                <span>Este objeto siempre ha sido la manera más eficiente de debilitar a los fantasmas más comunes. Su método de empleo es sencillo: sujétalo y quémalo cerca del fantasma.</span>
-            </div>
-
-            <h3>Escritura fantasma</h3>
-            <div class="m-content__p">
-                <figure>
-                    <img class="m-content__img" :src="require(`../assets/images/h-escr.jpg`)" alt="f">
-                </figure>
-                <span>Los investigadores de lo paranormal empezaron a usar papel y lápiz como método comunicativo alternativo a la Spirit Box. Más tarde se descubrió que sólo ciertos tipos de fantasma están dispuestos a escribir.</span>
-            </div>
-
-            <h3>Ouija</h3>
-            <div class="m-content__p">
-                <figure>
-                    <img class="m-content__img" :src="require(`../assets/images/h-ouij.jpg`)" alt="f">
-                </figure>
-                <span>La manera más común de invocar a un fantasma es con uno de estos tableros, por lo que quizá te encuentres con uno de estos durante tus investigaciones. Ten cuidado si le das uso, pues se sabe que tienden a bajar tu cordura. Para utilizar la güija, actívala y entonces realiza preguntas usando tu voz.</span>
-            </div>
+            <template v-for="(evidence) in evidenceData">
+                <article class="m-article" :key=evidence.title>
+                    <h2>{{evidence.title}}</h2>
+                    <div class="m-content__p">
+                        <figure v-bind:class="{patch1: evidence.patch == 1, patch2: evidence.patch == 2, patch3: evidence.patch == 3}">
+                            <img class="m-content__img" :src="require(`../assets/images/${evidence.img}.jpg`)" alt="f"/>
+                        </figure>
+                        <span>{{evidence.desc}}</span>
+                    </div>
+                </article>
+            </template>
         </dir>
     </div>
 </template>
 
 <script>
+import json from 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
+
 export default {
   name: 'ReuniendoPruebas',
   components: {},
   data() {
-    return {}
+    return {
+        evidenceData: json.evidenceData,
+    }
   },
   methods: {}
 }
 </script>
 
 <style lang="scss">
-    .m-content {
-        margin-top: 80px;
-        padding: 0;
-
-        &__p {
-            display: flex;
-             margin: 0 0 32px 0;
+    .m-article {
+        @media (min-width: 768px) {
+            width: 48%;
         }
 
-        &__img {
-            width: 125px;
-            height: auto;
-            margin: 0 16px 0 0;
+        .patch1,
+        .patch2,
+        .patch3 {
+            position: relative;
+            
+            &:before {
+                content: "";
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+                display: block;
+                position: absolute;
+                background-size: 100%;
+                height: 100%;
+            }
+        }
+
+        .patch1 {
+            &:before {
+                background-image: url('../assets/images/patch.png');
+            }
+        }
+
+        .patch2 {
+            &:before {
+                background-image: url('../assets/images/patch2.png');
+            }
+        }
+
+        .patch3 {
+            &:before {
+                background-image: url('../assets/images/patch3.png');
+            }
         }
     }
 </style>

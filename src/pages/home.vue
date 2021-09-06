@@ -14,7 +14,7 @@
 <script>
 import Form from '../components/Form.vue'
 import Cards from '../components/Cards.vue'
-import json from '../data/data.json'
+import json from 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
 
 export default {
   name: 'Home',
@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       formData: json.formData,
-      tableData: json.tableData
+      tableData: json.tableData,
+
     }
   },
   methods: {
