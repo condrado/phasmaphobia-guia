@@ -22,23 +22,31 @@
     </div>
     <ul class="m-form__result">
       <li class="m-form__item" v-bind:class="{ show: isSelected1 }">
-        <button type="button" class="m-form__btn"  v-on:click="changeTrack('1')">
+        <button type="button" class="m-form__btn" v-on:click="changeTrack('1')">
           <i v-bind:class=icon1></i>
         </button>
       </li>
       <li class="m-form__item" v-bind:class="{ show: isSelected2 }">
-        <button type="button" class="m-form__btn"  v-on:click="changeTrack('2')">
+        <button type="button" class="m-form__btn" v-on:click="changeTrack('2')">
           <i v-bind:class=icon2></i>
         </button>
       </li>
       <li class="m-form__item" v-bind:class="{ show: isSelected3 }">
-        <button type="button" class="m-form__btn"  v-on:click="changeTrack('3')">
+        <button type="button" class="m-form__btn" v-on:click="changeTrack('3')">
           <i v-bind:class=icon3></i>
         </button>
       </li>
     </ul>
     <div class="m-form__actions">
-      <button class="m-button">Reset</button>
+      <p class="m-form__name">
+        <span class="m-form__name-label" v-if="namePhan">
+          Nombre del Fantasma:
+        </span>
+         <span class="m-form__name-text">
+          {{namePhan}}
+        </span>
+      </p>
+      <button class="m-button" ><i class='reset'></i></button>
     </div>
   </form>
 </template>
@@ -63,7 +71,8 @@ export default {
       icon1: '',
       icon2: '',
       icon3: '',
-      isLast: false
+      isLast: false,
+      namePhan: ''
     }
   },
   updated: function(){
@@ -141,23 +150,28 @@ export default {
       this.$emit('changeSelected3', this.formData)
     },
     changeTrack (track) {
-      switch (track) {
-        case '1':
-          this.isSelected1 = false;
-          this.isSelected2 = true;
-          this.isSelected3 = true;
-          this.isLast = false
-          break;
-        case '2':
-          this.isSelected1 = true
-          this.isSelected2 = false
-          this.isSelected3 = true
-          this.isLast = false
-          break;
-        default:
-          break;
+      if (this.isSelected1) {
+        switch (track) {
+          case '1':
+            this.isSelected1 = false;
+            this.isSelected2 = true;
+            this.isSelected3 = true;
+            this.isLast = false
+            break;
+          case '2':
+            this.isSelected1 = true
+            this.isSelected2 = false
+            this.isSelected3 = true
+            this.isLast = false
+            break;
+          default:
+            break;
+        }
       }
     }
+  },
+  mounted() {
+    if(localStorage.namePhan) this.namePhan = localStorage.namePhan;
   }
 }
 </script>
@@ -180,6 +194,7 @@ export default {
     display: block;
     margin-bottom: 32px;
     min-height: 118px;
+    padding: 0;
   }
 
   &__select-box {
@@ -225,13 +240,19 @@ export default {
     display: block;
     text-align: center;
     height: 29px;
+    width: 35px;
     padding-top: 3px;
+    font-size: 20px;
 
     @media (min-width: 768px) {
       margin: 0 6px;
       padding-top: 0;
     }
 
+    .m-form__btn {
+      text-align: center;
+      padding: 0 6px;
+    }
   }
 
   &__btn {
@@ -242,6 +263,10 @@ export default {
     @media (min-width: 768px) {
       margin: 0 6px;
       text-align: center;
+    }
+
+    i {
+      width: auto;
     }
   }
 
@@ -254,17 +279,43 @@ export default {
     background-image: url('../assets/images/bg-page.jpg');
     min-height: 48px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     z-index: 1;
+    border-top: 1px dashed #808080;
+
+    .m-button {
+      height: 40px;
+      width: 40px;
+      border: 0;
+      background-color: transparent;
+      color: #ffffff;
+      margin-right: 12px;
+      font-size: 24px;
+    }
+
+    i {
+      &::after {
+        display: none;
+      }
+    }
   }
 
-  .m-button {
-    height: 40px;
-    border: 0;
-    border-radius: 5px;
-    padding: 0 24px;
-    background-color: #fff;
+  &__name {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+    margin: 0;
+
+    &-label {
+      font-size: 13px;
+      line-height: 12px;
+    }
+
+    &-text {
+      line-height: 14px;
+      min-height: 14px;
+    }
   }
 
   .row {
@@ -304,6 +355,7 @@ export default {
     color: #fff;
     background-color: transparent;
     border-bottom: 1px solid #fff;
+    border-radius: 0;
 
     option {
       &:disabled {

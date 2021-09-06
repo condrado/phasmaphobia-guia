@@ -1,7 +1,7 @@
 <template>
   <div class="m-cards">
     <div class="m-cards__header">
-      <h2>Tipos de fantasmas</h2>
+      <h2>Fantasmas</h2>
       <div class="m-cards__list">
         <button v-on:click="changeFormatCard" v-if="isList"><i class='list'></i></button>
         <button v-on:click="changeFormatList" v-else><i class='large'></i></button>
@@ -43,18 +43,23 @@ export default {
     }
   },
   methods: {
-   classExtraction(index) {
+    classExtraction(index) {
       return 'th th-' + index
-   },
-   imageView (img) {
-     return require(img)
-   },
-   changeFormatCard () {
-     this.isList = false
-   },
-  changeFormatList () {
-     this.isList = true
-   }
+    },
+    imageView (img) {
+      return require(img)
+    },
+    changeFormatCard () {
+      this.isList = false
+      localStorage.isList = false;
+    },
+    changeFormatList () {
+      this.isList = true
+      localStorage.isList = true;
+    }
+  },
+  mounted() {
+    if(localStorage.isList) this.isList = localStorage.isList === 'true';
   }
 }
 </script>
@@ -64,6 +69,7 @@ export default {
   &__header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: fixed;
     z-index: 1;
     top: 190px;
@@ -76,6 +82,7 @@ export default {
     @media (min-width: 768px) {
       text-align: center;
       position: static;
+      padding: 0;
     }
   }
 
@@ -83,10 +90,11 @@ export default {
     button {
       border: 0;
       background-color: transparent;
+      padding-right: 0;
 
       i {
         color: #ffffff;
-        font-size: 22px;
+        font-size: 26px;
 
         &::after {
           display: none;
@@ -100,7 +108,7 @@ export default {
   margin-bottom: 60px;
 
   @media (min-width: 768px) {
-    padding: 0 12px;
+   // padding: 0 12px;
   }
  
   &__card {
@@ -151,6 +159,7 @@ export default {
 
      p {
        margin: 16px 0 0;
+       font-size: 20px;
 
        i {
          &:first-child {
@@ -187,11 +196,13 @@ export default {
       &__container {
         flex-wrap: nowrap;
         justify-content: space-between;
+        align-items: center;
       }
 
       &__title {
         width: auto;
         margin: 0;
+        border-bottom: 0;
       }
 
       &__figure {
@@ -207,6 +218,8 @@ export default {
           margin: 0;
 
           i {
+            width: 23px;
+
             &::after {
               left: auto;
               right: -15px;
