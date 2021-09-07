@@ -20,6 +20,10 @@
         <li>
           <router-link class="link" :to="{path: urlNombreFantasma}">Nombre fantasma</router-link>
         </li>
+        <li>
+          <router-link class="link" :to="{path: urlPaginasRelacionadas}">Paginas relacionadas</router-link>
+          <!-- <a class="link" href="https://kineticgames.co.uk/" target="_blank">Web oficial</a> -->
+        </li>
       </ul>
     </div>
   </div>
@@ -44,7 +48,8 @@ export default {
       urlHome: path,
       urlInstrumentos: path + 'instrumentos',
       urlReuniendoPruebas: path + 'reuniendo-pruebas',
-      urlNombreFantasma: path + 'nombre-fantasma'
+      urlNombreFantasma: path + 'nombre-fantasma',
+      urlPaginasRelacionadas: path + 'paginas-relacionadas'
     }
   },
   methods: {
@@ -121,7 +126,7 @@ export default {
     }
 
     li {
-      line-height: 40px;
+      padding: 10px 0;
     }
   }
 }

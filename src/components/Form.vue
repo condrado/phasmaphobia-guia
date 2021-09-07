@@ -25,43 +25,43 @@
         <div class="m-form__btn-group">
           <ul class="m-form__btn-group-list">
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="1" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="1" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn1">
                 <i class="emf"></i>
               </button>
               <span class="m-form__check-text">EMF nivel 5</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="2" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="2" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn2">
                 <i class="write"></i>
               </button>
               <span class="m-form__check-text">Escritura fantasma</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="3" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="3" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn3">
                 <i class="handprint"></i>
               </button>
               <span class="m-form__check-text">Huellas dactilares</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="4" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="4" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn4">
                 <i class="orbes"></i>
               </button>
               <span class="m-form__check-text">Orbes</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="5" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="5" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn5">
                 <i class="temp"></i>
               </button>
               <span class="m-form__check-text">Temperatura bajo cero</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="6" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="6" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn6">
                 <i class="spititbox"></i>
               </button>
               <span class="m-form__check-text">Spirit Box</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="7" v-on:click="selectTrack">
+              <button type="button" class="m-form__btn m-form__check" data-id="7" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn7">
                 <i class="proyector"></i>
               </button>
               <span class="m-form__check-text">Proyector D.O.T.S</span>
@@ -111,7 +111,8 @@ export default {
     formData: Object,
     pista1: String,
     pista2: String,
-    pista3: String
+    pista3: String,
+    isHideBtn: Object
   },
   data() {
     return {
@@ -237,6 +238,7 @@ export default {
       let textSelectedAct = this.textSelected
       let tracksSelectedAct = this.tracksSelected
       let textAct = event.currentTarget.nextElementSibling.textContent
+      let isEnd = true
 
       if (classBtn.indexOf('active') > -1) {
         if (tracksSelectedAct > 0) {
@@ -245,22 +247,32 @@ export default {
 
           if (textSelectedAct.indexOf(textAct + ' • ') > -1) {
             textAct = textAct + ' • '
+            isEnd = false
           }
 
           const tracksSelectedActArray = textSelectedAct.split(textAct)
           
-
-          if (this.tracksSelected === 1) {
-            this.textSelected = tracksSelectedActArray.join('').replace(' • ','');
-          } else if (this.tracksSelected === 0) {
-            this.textSelected = '- Seleccione una prueba -'
-          } else {
-            this.textSelected = tracksSelectedActArray.join('')
+          switch (this.tracksSelected) {
+            case 0:
+              this.textSelected = '- Seleccione una prueba -'
+              break;
+            case 1:
+              this.textSelected = tracksSelectedActArray.join('').replace(' • ','')
+              break;
+            case 2:
+              if (!isEnd) {
+                this.textSelected = tracksSelectedActArray.join('')
+              } else {
+                this.textSelected = tracksSelectedActArray.join('').substr(0, tracksSelectedActArray.join('').length - 3)
+              }
+              break;
+            default:
+              this.textSelected = tracksSelectedActArray.join('')
+              break;
           }
 
           var indice = this.tracksId.indexOf(trackId)
           this.tracksId.splice(indice, 1)
-          console.log(this.tracksId)
         }
       } else {
         if (tracksSelectedAct < 3) {
@@ -423,6 +435,10 @@ export default {
       background-image: url('../assets/images/bg-page.jpg');
       left: 0;
       bottom: -35px;
+    }
+
+    &[disabled="disabled"] {
+      opacity: .2;
     }
 
     &.active {

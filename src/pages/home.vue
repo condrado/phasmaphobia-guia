@@ -6,6 +6,7 @@
             :pista1="pista1"
             :pista2="pista2"
             :pista3="pista3"
+            :isHideBtn="isHideBtn"
             @selectTrunck="selectTrunck"
             @changeSelected1="changeSelected1"
             @changeSelected2="changeSelected2"
@@ -42,7 +43,17 @@ export default {
       pista1: '',
       pista2: '',
       pista3: '',
-      pistas: ''
+      pistas: '',
+      isHideBtn: {
+        isHideBtn1: false,
+        isHideBtn2: false,
+        isHideBtn: false,
+        isHideBtn3: false,
+        isHideBtn4: false,
+        isHideBtn5: false,
+        isHideBtn6: false,
+        isHideBtn7: false
+      }
     }
   },
   methods: {
@@ -169,9 +180,11 @@ export default {
     },
     showtiposIcons (tracks) {
       let classIcons = ''
+      let tracksPhant = []
 
       this.tableData.items.forEach(item => {
         let isActive = true
+        let pistaId = []
 
         tracks.forEach(track => {
           if (item.pistaId.indexOf(track) < 0) {
@@ -180,11 +193,28 @@ export default {
             if (classIcons.indexOf(this.formData.options1[track].iconClass) < 0) {
               classIcons = classIcons + ' ' + this.formData.options1[track].iconClass
             }
+      
+            pistaId.push(item.pistaId)
           }
         })
 
+        if (isActive) {
+          tracksPhant.push(pistaId.join('-'))
+        }
+
         item.isActive = isActive
       })
+
+      for (let index = 0; index < 8; index++) {
+        const i = index + 1
+        const tracksPhantStr = tracksPhant.join('-')
+
+        if (tracksPhantStr.indexOf(i + '') < 0) {
+          this.isHideBtn['isHideBtn' + i] = true
+        } else {
+          this.isHideBtn['isHideBtn' + i] = false
+        }
+      }
 
       this.pistas = classIcons
     },
