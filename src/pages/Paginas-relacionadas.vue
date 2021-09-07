@@ -5,7 +5,7 @@
             <div class="m-pages">
                 <div class="row">
                     <template v-for="(page) in pagesData">
-                        <a :href="page.url" class="link col col-3" target="_blank" :key=page.title>
+                        <a :href="page.url" class="link col col-12 col-md-6 col-lg-3" target="_blank" :key=page.title>
                             <figure class="m-pages__figure">
                                 <img class="m-pages__img" :src="require(`../assets/images/${page.img}.jpg`)" alt="f"/>
                             </figure>
@@ -46,6 +46,10 @@ export default {
        width: 100%;
        text-align: center;
 
+       .link {
+           margin-bottom: 32px;;
+       }
+
        &__figure {
 
        }
@@ -53,6 +57,7 @@ export default {
        &__img {
            width: 100%;
            height: auto;
+           max-width: 400px;
        }
     }
 </style>
