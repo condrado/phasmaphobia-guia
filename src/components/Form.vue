@@ -412,6 +412,7 @@ export default {
     width: 45px;
     height: 45px;
     margin: 0 3px;
+    padding: 0;
 
     &-text {
       display: none;
