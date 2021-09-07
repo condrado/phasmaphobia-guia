@@ -47,7 +47,6 @@ export default {
       isHideBtn: {
         isHideBtn1: false,
         isHideBtn2: false,
-        isHideBtn: false,
         isHideBtn3: false,
         isHideBtn4: false,
         isHideBtn5: false,
@@ -181,6 +180,7 @@ export default {
     showtiposIcons (tracks) {
       let classIcons = ''
       let tracksPhant = []
+      let numberTracks = Object.values(this.isHideBtn).length
 
       this.tableData.items.forEach(item => {
         let isActive = true
@@ -205,12 +205,16 @@ export default {
         item.isActive = isActive
       })
 
-      for (let index = 0; index < 8; index++) {
+      for (let index = 0; index < numberTracks; index++) {
         const i = index + 1
         const tracksPhantStr = tracksPhant.join('-')
 
-        if (tracksPhantStr.indexOf(i + '') < 0) {
-          this.isHideBtn['isHideBtn' + i] = true
+        if (tracks.length > 0) {
+          if (tracksPhantStr.indexOf(i + '') < 0) {
+            this.isHideBtn['isHideBtn' + i] = true
+          } else {
+            this.isHideBtn['isHideBtn' + i] = false
+          }
         } else {
           this.isHideBtn['isHideBtn' + i] = false
         }
