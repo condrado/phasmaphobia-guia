@@ -138,7 +138,7 @@ i {
 }
 
 body {
-    background-color: #222;
+    background-color: #222 !important;
     background-image: url('assets/images/bg-page.jpg');
 }
 
