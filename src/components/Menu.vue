@@ -62,9 +62,6 @@ export default {
   },
   directives: {
     ClickOutside
-  },
-  mounted() {
-    console.log(this.urlInstrumentos)
   }
 }
 </script>

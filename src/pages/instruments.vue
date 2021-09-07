@@ -18,17 +18,25 @@
 </template>
 
 <script>
-import json from 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
+// import axios from "axios";
+import json from '../data/data.json'
 
 export default {
   name: 'Instruments',
   components: {},
   data() {
     return {
+        // instrumentData: []
         instrumentData: json.instrumentData,
     }
   },
-  methods: {}
+  methods: {},
+  mounted() {
+    // const api = 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
+    // axios.get(api).then((response) => {
+    //   console.log(response.data)
+    // })
+  }
 }
 </script>
 

@@ -3,18 +3,29 @@
         <h1 class="app-title">Libro de registro</h1>
         <Form
             :formData="formData"
+            :pista1="pista1"
+            :pista2="pista2"
+            :pista3="pista3"
+            @selectTrunck="selectTrunck"
             @changeSelected1="changeSelected1"
             @changeSelected2="changeSelected2"
             @changeSelected3="changeSelected3"
         />
-        <Cards :tableData="tableData"/>
+        <Cards 
+          :tableData="tableData"
+          :pista1="pista1"
+          :pista2="pista2"
+          :pista3="pista3"
+          :pistas="pistas"
+        />
     </div>
 </template>
 
 <script>
 import Form from '../components/Form.vue'
 import Cards from '../components/Cards.vue'
-import json from 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
+// import axios from "axios";
+import json from '../data/data.json'
 
 export default {
   name: 'Home',
@@ -24,26 +35,37 @@ export default {
   },
   data() {
     return {
+      // formData: {},
+      // tableData: {}
       formData: json.formData,
       tableData: json.tableData,
-
+      pista1: '',
+      pista2: '',
+      pista3: '',
+      pistas: ''
     }
   },
   methods: {
+    selectTrunck(track) {
+      this.showtiposIcons(track)
+    },
     changeSelected1 (childrenData) {
       this.resetDisbledOptions(childrenData.options2, childrenData.selected1, '1')
       this.resetDisbledOptions(childrenData.options3, childrenData.selected1, '1')
       this.disbledOptions(childrenData.options2, childrenData.selected1)
       this.disbledOptions(childrenData.options3, childrenData.selected1)
       this.showtipos(1)
+      this.selectSearchClass(1, childrenData.selected1, childrenData.options1)
     },
     changeSelected2 (childrenData) {
-      this.resetDisbledOptions(childrenData.options3, childrenData.selected1, '2')
+      this.resetDisbledOptions(childrenData.options3, childrenData.selected2, '2')
       this.disbledOptions(childrenData.options3, childrenData.selected2)
       this.showtipos(2)
+      this.selectSearchClass(2, childrenData.selected2, childrenData.options1)
     },
-    changeSelected3 () {
+    changeSelected3 (childrenData) {
       this.showtipos(3)
+      this.selectSearchClass(3, childrenData.selected3, childrenData.options1)
     },
     disbledOptions (options, selected) {
       if (selected) {
@@ -74,12 +96,25 @@ export default {
         })
       }
 
-
       if (selectInit === '1') {
         this.formData.selected2 = null
         this.formData.selected3 = null
+
+        if (!selected) {
+          this.formData.selected1 = null
+          this.pista1 = ''
+          this.pista2 = ''
+          this.pista3 = ''
+        }
+
       } else {
         this.formData.selected3 = null
+
+        if (!selected) {
+          this.formData.selected2 = null
+          this.pista2 = ''
+          this.pista3 = ''
+        }
       }
     },
     showtipos (numberSelected) {
@@ -131,7 +166,58 @@ export default {
           item.isActive = false
         }
       })
+    },
+    showtiposIcons (tracks) {
+      let classIcons = ''
+
+      this.tableData.items.forEach(item => {
+        let isActive = true
+
+        tracks.forEach(track => {
+          if (item.pistaId.indexOf(track) < 0) {
+            isActive = false
+          } else {
+            classIcons = classIcons + ' ' + this.formData.options1[track].iconClass
+          }
+        })
+
+        item.isActive = isActive
+      })
+
+      this.pistas = classIcons
+    },
+    selectSearchClass (selecteNum, selected, options) {
+      let selectedArray = []
+
+      if (selected) {
+        selectedArray = selected.split('-');
+
+        switch (selecteNum) {
+          case 1:
+            this.pista1 = options[selectedArray[1]].iconClass
+            this.pista2 = ''
+            this.pista3 = ''
+            break;
+          case 2:
+            this.pista2 = options[selectedArray[1]].iconClass
+            this.pista3 = ''
+            break;
+          case 3:
+            this.pista3 = options[selectedArray[1]].iconClass
+            break;
+          default:
+            break;
+        }
+      }
     }
+  },
+  mounted() {
+    // const api = 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
+    
+    // axios.get(api).then((response) => {
+    //   this.formData = response.data.formData
+    //   this.tableData = response.tableData
+    // })
   }
 }
 </script>

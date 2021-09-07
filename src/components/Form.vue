@@ -1,6 +1,6 @@
 <template>
   <form class="m-form">
-    <div class=" row">
+    <div class="m-form__select-group row">
       <div class="col col-12 col-md-4" v-bind:class="{ hidden: isSelected1 }">
         <div class="m-form__select-box">
           <h2>Pista 1</h2>
@@ -17,6 +17,59 @@
         <div class="m-form__select-box">
           <h2>Pista 3</h2>
           <b-form-select v-if="selected2" v-model="selected3" :options="options3" @change="changeSelected3"></b-form-select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-12">
+        <div class="m-form__btn-group">
+          <ul class="m-form__btn-group-list">
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="1" v-on:click="selectTrack">
+                <i class="emf"></i>
+              </button>
+              <span class="m-form__check-text">EMF nivel 5</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="2" v-on:click="selectTrack">
+                <i class="write"></i>
+              </button>
+              <span class="m-form__check-text">Escritura fantasma</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="3" v-on:click="selectTrack">
+                <i class="handprint"></i>
+              </button>
+              <span class="m-form__check-text">Huellas dactilares</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="4" v-on:click="selectTrack">
+                <i class="orbes"></i>
+              </button>
+              <span class="m-form__check-text">Orbes</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="5" v-on:click="selectTrack">
+                <i class="temp"></i>
+              </button>
+              <span class="m-form__check-text">Temperatura bajo cero</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="6" v-on:click="selectTrack">
+                <i class="spititbox"></i>
+              </button>
+              <span class="m-form__check-text">Spirit Box</span>
+            </li>
+            <li>
+              <button type="button" class="m-form__btn m-form__check" data-id="7" v-on:click="selectTrack">
+                <i class="proyector"></i>
+              </button>
+              <span class="m-form__check-text">Proyector D.O.T.S</span>
+            </li>
+          </ul>
+          <p class="m-form__btn-group-text-selected">
+            {{textSelected}}
+          </p>
         </div>
       </div>
     </div>
@@ -55,7 +108,10 @@
 export default {
   name: 'Form',
   props: {
-    formData: Object
+    formData: Object,
+    pista1: String,
+    pista2: String,
+    pista3: String
   },
   data() {
     return {
@@ -72,7 +128,10 @@ export default {
       icon2: '',
       icon3: '',
       isLast: false,
-      namePhan: ''
+      namePhan: '',
+      tracksSelected: 0,
+      textSelected: '- Seleccione una prueba -',
+      tracksId: []
     }
   },
   updated: function(){
@@ -101,6 +160,7 @@ export default {
         this.isSelected2 = false
         this.isSelected3 = true
       } else {
+        this.icon1 = ''
         this.isSelected1 = false
         this.isSelected2 = true
         this.isSelected3 = true
@@ -121,9 +181,10 @@ export default {
         this.isSelected2 = true
         this.isSelected3 = false
       } else {
+        this.icon2 = ''
         this.isSelected1 = true
         this.isSelected2 = false
-        this.isSelected3 = false
+        this.isSelected3 = true
       }
 
       this.icon3 = ''
@@ -140,6 +201,7 @@ export default {
         this.isSelected2 = true
         this.isSelected3 = true
       } else {
+        this.icon3 = ''
         this.isSelected1 = true
         this.isSelected2 = true
         this.isSelected3 = false
@@ -168,6 +230,53 @@ export default {
             break;
         }
       }
+    },
+    selectTrack (event) {
+      const classBtn = event.currentTarget.className
+      const trackId = event.currentTarget.getAttribute('data-id')
+      let textSelectedAct = this.textSelected
+      let tracksSelectedAct = this.tracksSelected
+      let textAct = event.currentTarget.nextElementSibling.textContent
+
+      if (classBtn.indexOf('active') > -1) {
+        if (tracksSelectedAct > 0) {
+          event.currentTarget.classList.remove("active");
+          this.tracksSelected =  tracksSelectedAct - 1
+
+          if (textSelectedAct.indexOf(textAct + ' • ') > -1) {
+            textAct = textAct + ' • '
+          }
+
+          const tracksSelectedActArray = textSelectedAct.split(textAct)
+          
+
+          if (this.tracksSelected === 1) {
+            this.textSelected = tracksSelectedActArray.join('').replace(' • ','');
+          } else if (this.tracksSelected === 0) {
+            this.textSelected = '- Seleccione una prueba -'
+          } else {
+            this.textSelected = tracksSelectedActArray.join('')
+          }
+
+          var indice = this.tracksId.indexOf(trackId)
+          this.tracksId.splice(indice, 1)
+          console.log(this.tracksId)
+        }
+      } else {
+        if (tracksSelectedAct < 3) {
+          event.currentTarget.classList.add("active")
+          this.tracksSelected =  tracksSelectedAct + 1
+
+          if (this.tracksSelected === 1) {
+            this.textSelected = textAct
+          } else {
+            this.textSelected = textSelectedAct + ' • ' + textAct
+          }
+
+          this.tracksId.push(trackId)
+        }
+      }
+      this.$emit('selectTrunck', this.tracksId)
     }
   },
   mounted() {
@@ -178,8 +287,8 @@ export default {
 
 <style lang="scss">
 .m-form {
-  height: 133px;
-  display: flex;
+  height: 115px;
+  display: block;
   position: fixed;
   top: 57px;
   left: 0;
@@ -197,17 +306,31 @@ export default {
     padding: 0;
   }
 
-  &__select-box {
-    min-height: 110px;
-    border: 1px dashed #808080;
-    padding: 15px;
-    border-radius: 5px;
+  &__select {
+    &-group {
 
-    @media (min-width: 768px) {
-      border-bottom: 1px dashed #808080;
-      min-height: 118px;
+      &.row {
+        display: none;
+
+        @media (max-width: 767px) {
+          width: calc(100% - 26px);
+          display: inline-block;
+          display: none;
+        }
+      }
     }
-    
+
+    &-box {
+      min-height: 110px;
+      border: 1px dashed #808080;
+      padding: 15px;
+      border-radius: 5px;
+
+      @media (min-width: 768px) {
+        border-bottom: 1px dashed #808080;
+        min-height: 118px;
+      }
+    }
   }
 
   &__result {
@@ -268,6 +391,57 @@ export default {
     i {
       width: auto;
     }
+
+    &-group {
+      &-list {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+        list-style-type: none;
+        position: relative;
+      }
+
+      &-text-selected {
+        text-align: center;
+      }
+    }
+  }
+
+  &__check {
+    width: 45px;
+    height: 45px;
+    margin: 0 3px;
+
+    &-text {
+      display: none;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      background-color: #222;
+      background-image: url('../assets/images/bg-page.jpg');
+      left: 0;
+      bottom: -35px;
+    }
+
+    &.active {
+      border: 1px dashed #808080;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.3); 
+      box-shadow: 0px 0px 5px 0px rgba(255,255,255,0.3);
+
+      // & + .m-form__check-text {
+      //   display: block;
+      // }
+    }
+
+    i {
+      font-size: 20px;
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   &__actions {
@@ -315,13 +489,6 @@ export default {
     &-text {
       line-height: 14px;
       min-height: 14px;
-    }
-  }
-
-  .row {
-    @media (max-width: 767px) {
-      width: calc(100% - 26px);
-      display: inline-block;
     }
   }
 

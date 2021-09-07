@@ -12,9 +12,9 @@
         <div class="blog__card col-12 col-md-6 col-lg-4" :key=item.tipo v-if="item.isActive">
           <div class="blog__container" >
             <h3 class="blog__title col-12 text-center">{{item.tipo}}</h3>
-            <div class="blog__figure col-4" v-bind:class="{patch1: item.patch == 1, patch2: item.patch == 2, patch3: item.patch == 3}">
+            <div class="blog__figure col-4" :class="pistas">
               <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
-              <p class="paragraph  text-center" v-html="item.pista"></p>
+              <p class="paragraph text-center" v-html="item.pista" :class="[pista1, pista2, pista3]"></p>
             </div>
             <div class="blog__body col-8">
                 <h4>Fortaleza</h4>
@@ -33,13 +33,21 @@
 export default {
   name: 'Cards',
   props: {
-    tableData: Object
+    tableData: Object,
+    pista1: String,
+    pista2: String,
+    pista3: String,
+    pistas: String
   },
   data() {
     return {
       fields: this.tableData.fields,
       items: this.tableData.items,
-      isList: false
+      isList: false,
+      pista1Act: this.pista1,
+      pista2Act: this.pista2,
+      pista3Act: this.pista3,
+      patchs: this.pistas
     }
   },
   methods: {
@@ -56,23 +64,9 @@ export default {
     changeFormatList () {
       this.isList = true
       localStorage.isList = true;
-    },
-    classObject (index) {
-      let patch = 'patch1'
-      const numero = parseInt(index)
-
-      if(numero % 2 == 0) {
-        return {
-          'patch2': patch
-        }
-      } else {
-        return {
-          'patch1': patch
-        }
-      }
     }
   },
-  mounted() {
+  beforeMount() {
     if(localStorage.isList) this.isList = localStorage.isList === 'true';
   }
 }
@@ -86,7 +80,7 @@ export default {
     align-items: center;
     position: fixed;
     z-index: 2;
-    top: 190px;
+    top: 171px;
     left: 0;
     width: 100%;
     padding: 0 12px;
@@ -260,7 +254,8 @@ export default {
         align-items: center;
 
         &.patch1,
-        &.patch2 {
+        &.patch2,
+        &.patch3 {
           &::before {
             display: none;;
           }
@@ -290,10 +285,46 @@ export default {
   }
 
   &.row {
-    margin-top: 232px;
+    margin-top: 215px;
 
     @media (min-width: 768px) {
       margin-top: 0;
+    }
+  }
+
+  .emf {
+    .emf {
+      opacity: .2;
+    }
+  }
+  .write {
+    .write {
+      opacity: .2;
+    }
+  }
+  .handprint {
+    .handprint {
+      opacity: .2;
+    }
+  }
+  .orbes {
+    .orbes {
+      opacity: .2;
+    }
+  }
+  .temp {
+    .temp {
+      opacity: .2;
+    }
+  }
+  .spititbox {
+    .spititbox {
+      opacity: .2;
+    }
+  }
+  .proyector {
+    .proyector {
+      opacity: .2;
     }
   }
 }
