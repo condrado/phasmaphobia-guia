@@ -177,7 +177,9 @@ export default {
           if (item.pistaId.indexOf(track) < 0) {
             isActive = false
           } else {
-            classIcons = classIcons + ' ' + this.formData.options1[track].iconClass
+            if (classIcons.indexOf(this.formData.options1[track].iconClass) < 0) {
+              classIcons = classIcons + ' ' + this.formData.options1[track].iconClass
+            }
           }
         })
 
