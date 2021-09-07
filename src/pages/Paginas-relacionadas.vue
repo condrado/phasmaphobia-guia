@@ -41,7 +41,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .app-title {
+        height: 90px;
+    }
+
+    .m-content {
+        margin-top: 95px;
+    }
+
     .m-pages {
        width: 100%;
        text-align: center;
@@ -51,13 +59,16 @@ export default {
        }
 
        &__figure {
-
+           border: 1px dashed #808080;
+           border-radius: 5px;
+           overflow: hidden;
        }
 
        &__img {
            width: 100%;
            height: auto;
            max-width: 400px;
+            border-radius: 5px; 
        }
     }
 </style>

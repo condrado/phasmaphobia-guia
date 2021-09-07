@@ -167,7 +167,7 @@ h3 {
 }
 
 .app-title {
-  padding: 8px 12px 16px;
+  padding: 8px 60px 16px 12px;
   margin: 0;
   position: fixed;
   top: 0;
