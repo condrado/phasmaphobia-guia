@@ -157,6 +157,9 @@ h3 {
 .link,
 .router-link-active {
   color: #fff;
+  line-height: 16px;
+  display: block;
+  font-size: 16px;
 
   &:hover {
     color: #fff;

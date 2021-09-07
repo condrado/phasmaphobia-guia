@@ -5,7 +5,8 @@ import Home from "./pages/Home.vue";
 import Instruments from "./pages/Instruments.vue";
 import ReuniendoPruebas from "./pages/Reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/Nombre-fantasma.vue";
-require('dotenv').config();
+import PaginasRelacionadas from "./pages/Paginas-relacionadas";
+
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,11 @@ const routes = [
     path: vuePath + "nombre-fantasma",
     name: "nombre-fantasma",
     component: NombreFantasma
+  },
+  {
+    path: vuePath + "paginas-relacionadas",
+    name: "paginas-relacionadas",
+    component: PaginasRelacionadas
   }
 ];
 

@@ -387,5 +387,22 @@
          "desc":"Una red láser proyectada que puede revelar, la silueta de un fantasma.",
          "patch":"1"
       }
+   ],
+   "pagesData": [
+      {
+         "title":"www.kineticgames.co.uk/",
+         "img":"w-kine",
+         "url":"https://kineticgames.co.uk/"
+      },
+      {
+         "title":"Steam",
+         "img":"w-stea",
+         "url":"https://store.steampowered.com/app/739630/Phasmophobia/"
+      },
+      {
+         "title":"Fandom",
+         "img":"w-fand",
+         "url":"https://phasmophobia.fandom.com/wiki/Main_Page"
+      }
    ]
 }
