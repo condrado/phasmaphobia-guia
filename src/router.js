@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
 
-// import PaginasRelacionadas from "./pages/paginas-relacionadas.vue";
 import Home from "./pages/home.vue";
 import Instruments from "./pages/instruments.vue";
 import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/nombre-fantasma.vue";
+import PaginasRelacionadas from "./pages/paginas-relacionadas.vue";
 
 Vue.use(VueRouter)
 
@@ -36,11 +36,11 @@ const routes = [
     name: "nombre-fantasma",
     component: NombreFantasma
   },
-  // {
-  //   path: vuePath + "paginas-relacionadas",
-  //   name: "paginas-relacionadas",
-  //   component: PaginasRelacionadas
-  // }
+  {
+    path: vuePath + "paginas-relacionadas",
+    name: "paginas-relacionadas",
+    component: PaginasRelacionadas
+  }
 ];
 
 const router = new VueRouter({
