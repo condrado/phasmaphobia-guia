@@ -5,7 +5,7 @@ import Home from "./pages/home.vue";
 import Instruments from "./pages/instruments.vue";
 import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/nombre-fantasma.vue";
-import PaginasRelacionadas from "./pages/paginas-relacionadas";
+import PaginasRelacionadas from "./pages/paginas-relacionadas.vue";
 
 
 Vue.use(VueRouter)
