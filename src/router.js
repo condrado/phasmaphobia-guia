@@ -10,7 +10,7 @@ import PaginasRelacionadas from "./pages/Paginas-relacionadas";
 
 Vue.use(VueRouter)
 
-let vuePath = '/phasmaphobia/'
+let vuePath = '/'
 
 if (process.env.NODE_ENV === 'development') {
   vuePath = '/'

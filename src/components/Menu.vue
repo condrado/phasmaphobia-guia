@@ -32,7 +32,8 @@
 <script>
 import ClickOutside from 'vue-click-outside'
 
-const path = process.env.NODE_ENV === 'development' ? '/' : '/phasmaphobia/'
+// const path = process.env.NODE_ENV === 'development' ? '/' : '/phasmaphobia/'
+const path = '/'
 
 export default {
   name: 'Menu',
@@ -44,7 +45,6 @@ export default {
       isOpen: false,
       isClose: true,
       isClickOpen: false,
-      urlPath: process.env.NODE_ENV === 'development' ? '/' : '/phasmaphobia/',
       urlHome: path,
       urlInstrumentos: path + 'instrumentos',
       urlReuniendoPruebas: path + 'reuniendo-pruebas',
