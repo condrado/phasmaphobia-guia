@@ -1,6 +1,6 @@
 <template>
     <div class="container-md">
-        <h1 class="app-title">Libro de registrossss</h1>
+        <h1 class="app-title">Libro de registro</h1>
         <Form
             :formData="formData"
             :pista1="pista1"
