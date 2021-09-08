@@ -5,7 +5,7 @@ import Home from "./pages/home.vue";
 import Instruments from "./pages/instruments.vue";
 import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/nombre-fantasma.vue";
-import PaginasRelacionadas from "./pages/paginas-relacionadas.vue";
+import WebsRelacionadas from "./pages/webs-relacionadas.vue";
 
 Vue.use(VueRouter)
 
@@ -37,9 +37,9 @@ const routes = [
     component: NombreFantasma
   },
   {
-    path: vuePath + "paginas-relacionadas",
-    name: "paginas-relacionadas",
-    component: PaginasRelacionadas
+    path: vuePath + "webs-relacionadas",
+    name: "webs-relacionadas",
+    component: WebsRelacionadas
   }
 ];
 

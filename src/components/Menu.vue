@@ -21,7 +21,7 @@
           <router-link class="link" :to="{path: urlNombreFantasma}">Nombre fantasma</router-link>
         </li>
         <li>
-          <router-link class="link" :to="{path: urlPaginasRelacionadas}">Paginas relacionadas</router-link>
+          <router-link class="link" :to="{path: urlWebsRelacionadas}">Webs relacionadas</router-link>
           <!-- <a class="link" href="https://kineticgames.co.uk/" target="_blank">Web oficial</a> -->
         </li>
       </ul>
@@ -49,7 +49,7 @@ export default {
       urlInstrumentos: path + 'instrumentos',
       urlReuniendoPruebas: path + 'reuniendo-pruebas',
       urlNombreFantasma: path + 'nombre-fantasma',
-      urlPaginasRelacionadas: path + 'paginas-relacionadas'
+      urlWebsRelacionadas: path + 'webs-relacionadas'
     }
   },
   methods: {

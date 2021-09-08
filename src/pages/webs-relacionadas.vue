@@ -1,6 +1,6 @@
 <template>
     <div class="container-md">
-        <h1 class="app-title">Paginas Relacionadas</h1>
+        <h1 class="app-title">Webs Relacionadas</h1>
         <dir class="m-content">
             <div class="m-pages">
                 <div class="row">
@@ -23,7 +23,7 @@
 import json from '../data/data.json'
 
 export default {
-  name: 'PaginasRelacionadas',
+  name: 'WebsRelacionadas',
   components: {},
   data() {
     return {
