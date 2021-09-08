@@ -18,7 +18,7 @@ module.exports = {
       msTileImage: 'img/icons/mstile-150x150.png'
     },
     manifestOptions: {
-      background_color: "#42b983"
+      background_color: "#222222"
     }
   }
 }
