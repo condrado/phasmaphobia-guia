@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
 
-import Home from "./pages/Home.vue";
-import Instruments from "./pages/Instruments.vue";
-import ReuniendoPruebas from "./pages/Reuniendo-pruebas.vue";
-import NombreFantasma from "./pages/Nombre-fantasma.vue";
-import PaginasRelacionadas from "./pages/Paginas-relacionadas";
+import Home from "./pages/home.vue";
+import Instruments from "./pages/instruments.vue";
+import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
+import NombreFantasma from "./pages/nombre-fantasma.vue";
+import PaginasRelacionadas from "./pages/paginas-relacionadas";
 
 
 Vue.use(VueRouter)
