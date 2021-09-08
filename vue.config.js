@@ -8,11 +8,12 @@ module.exports = {
   },
   publicPath: '',
   pwa: {
-    name: 'Libro de registro',
+    name: 'Libro registro',
     themeColor: '#222222',
     msTileColor: '#FFFFFF',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
+    workboxPluginMode: "GenerateSW",
     iconPaths: {
       msTileImage: 'img/icons/mstile-150x150.png'
     },
