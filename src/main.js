@@ -4,6 +4,7 @@ import { BootstrapVue } from 'bootstrap-vue'
 import router from "./router";
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import './registerServiceWorker'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
