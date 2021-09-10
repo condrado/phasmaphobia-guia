@@ -29,11 +29,14 @@ export default {
       isNewGame: true,
       inputValue: '',
       isTime: false,
-      isSelectedTime: false
+      isSelectedTime: false,
+      names: [],
+      isFirstName: true
     }
   },
   methods: {
     newGame (activeNameInput) {
+      this.isNewGame = true
       this.isNameInput = activeNameInput
     },
     newSelectedTime (activeSelectedTime) {
@@ -46,32 +49,27 @@ export default {
       this.isNameInput = newName.isNameInput
       this.isNewGame = newName.isNewGame
       this.inputValue = newName.inputValue
-
-      let localStorageAct = localStorage.namesPhanStr
-      let localStorageActArr = []
-
-      if(localStorageAct) {
-          localStorageAct = this.newName + '|' + localStorageAct;
-          localStorageActArr = localStorageAct.split('|')
-          localStorageActArr.pop()
-      } else {
-          localStorageAct = this.newName + '|'
-          localStorageActArr.push(this.newName)
-      }
-
-      this.namesPhan = localStorageActArr
-
-      localStorage.namesPhanStr = localStorageAct
-      
-      if (localStorageActArr.length > 0) {
-          localStorage.namePhan = localStorageActArr[0]
-      } else {
-          localStorage.namePhan = ''
-      }
+      this.saveNames()
+      this.isFirstName = false
     },
+    saveNames () {
+      if (this.isFirstName) {
+        this.names.unshift(this.inputValue)
+      } else {
+        this.names.shift()
+        this.names.unshift(this.inputValue)
+      }
+
+      localStorage.namesPhanStr = this.names.join('|')
+    }
   },
   mounted() {
-    console.log(this.inputValue)
+    var localStorageAct = localStorage.namesPhanStr
+
+    if(localStorageAct) {
+      var localStorageActArr = localStorageAct.split('|')
+      this.names = localStorageActArr
+    }
   }
 }
 </script>

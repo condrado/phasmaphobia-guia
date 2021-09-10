@@ -1,25 +1,5 @@
 <template>
   <form class="m-form">
-    <div class="m-form__select-group row">
-      <div class="col col-12 col-md-4" v-bind:class="{ hidden: isSelected1 }">
-        <div class="m-form__select-box">
-          <h2>Pista 1</h2>
-          <b-form-select v-model="selected1" :options="options1" @change="changeSelected1"></b-form-select>
-        </div>
-      </div>
-      <div class="col col-12 col-md-4" v-bind:class="{ hidden: isSelected2 }">
-        <div class="m-form__select-box">
-          <h2>Pista 2</h2>
-          <b-form-select v-if="selected1" v-model="selected2" :options="options2" @change="changeSelected2"></b-form-select>
-        </div>
-      </div>
-      <div class="col col-12 col-md-4" v-bind:class="{ hidden: isSelected3, isLast: isLast }">
-        <div class="m-form__select-box">
-          <h2>Pista 3</h2>
-          <b-form-select v-if="selected2" v-model="selected3" :options="options3" @change="changeSelected3"></b-form-select>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col col-12">
         <div class="m-form__btn-group">
@@ -73,23 +53,6 @@
         </div>
       </div>
     </div>
-    <ul class="m-form__result">
-      <li class="m-form__item" v-bind:class="{ show: isSelected1 }">
-        <button type="button" class="m-form__btn" v-on:click="changeTrack('1')">
-          <i v-bind:class=icon1></i>
-        </button>
-      </li>
-      <li class="m-form__item" v-bind:class="{ show: isSelected2 }">
-        <button type="button" class="m-form__btn" v-on:click="changeTrack('2')">
-          <i v-bind:class=icon2></i>
-        </button>
-      </li>
-      <li class="m-form__item" v-bind:class="{ show: isSelected3 }">
-        <button type="button" class="m-form__btn" v-on:click="changeTrack('3')">
-          <i v-bind:class=icon3></i>
-        </button>
-      </li>
-    </ul>
     <div class="m-form__actions">
       <template v-if="isNewGame">
         <div class="m-form__actions-new">
@@ -103,21 +66,19 @@
       <template v-else>
         <div class="m-form__actions-old">
           <p class="m-form__name">
-            <!-- <span class="m-form__name-label">
-              Nombre del Fantasma:
-            </span> -->
-            <span class="m-form__name-text">
-              {{inputName}}
-            </span>
+            <button class="m-button" type="button" v-on:click="newGame">
+              <span class="m-form__name-text">
+                {{inputName}}
+              </span>
+            </button>
           </p>
-          <p class="m-form__time" v-if="isSelectedTime">
+          <p class="m-form__time" v-if="isSelectedTime" v-click-outside="handleFocusOutTime">
             <button class="m-button" type="button" v-on:click="newTime($event, 301)">05:00</button>
-            <button class="m-button" type="button" v-on:click="newTime($event, 121)" >02:00</button>
+            <button class="m-button" type="button" v-on:click="newTime($event, 11)" >02:00</button>
           </p>
           <div class="m-button__group">
-            
             <button class="m-button" type="button" v-on:click="newSelectedTime">
-              <Temporizador :seconds="seconds" :newInterval="newInterval" @changeMsg="changeMsg" :msg="msg"/>
+              <Temporizador :seconds="seconds" :newInterval="newInterval" @runTemp="runTemp" :isRunTemp="isRunTemp"/>
             </button>
             <button class="m-button" ><i class='reset'></i></button>
           </div>
@@ -138,9 +99,6 @@ export default {
   },
   props: {
     formData: Object,
-    pista1: String,
-    pista2: String,
-    pista3: String,
     isHideBtn: Object,
     isNameInput: Boolean,
     isNewGame: Boolean,
@@ -150,15 +108,6 @@ export default {
   },
   data() {
     return {
-      selected1: this.formData.selected1,
-      selected2: this.formData.selected2,
-      selected3: this.formData.selected3,
-      options1: this.formData.options1,
-      options2: this.formData.options2,
-      options3: this.formData.options3,
-      isSelected1: false,
-      isSelected2: true,
-      isSelected3: true,
       icon1: '',
       icon2: '',
       icon3: '',
@@ -171,24 +120,8 @@ export default {
       inputName: this.inputValue,
       seconds: 0,
       newInterval: null,
-      msg: false
+      isRunTemp: false
     }
-  },
-  updated: function(){
-    if (this.formData.selected1 !== this.selected1) {
-      this.selected2 = null
-      this.selected3 = null
-    } else {
-      this.formData.selected1 = this.selected1
-    }
-
-    if (this.formData.selected2 !== this.selected2) {
-      this.selected3 = null
-    } else {
-      this.formData.selected2 = this.selected2
-    }
-    
-    this.formData.selected3 = this.selected3
   },
   watch: { 
       isNameInput () {
@@ -202,86 +135,6 @@ export default {
       }
     },
   methods: {
-    changeSelected1 () {
-      if (this.selected1) {
-        const optionSelectedInfo = this.selected1.split('-')
-        const options = this.formData['options' + optionSelectedInfo[0]]
-        this.icon1 = options[optionSelectedInfo[1]].iconClass
-        this.isSelected1 = true
-        this.isSelected2 = false
-        this.isSelected3 = true
-      } else {
-        this.icon1 = ''
-        this.isSelected1 = false
-        this.isSelected2 = true
-        this.isSelected3 = true
-      }
-      
-      this.icon2 = ''
-      this.icon3 = ''
-      this.isLast = false
-      this.formData.selected1 = this.selected1
-      this.$emit('changeSelected1', this.formData)
-    },
-    changeSelected2 () {
-      if (this.selected2) {
-        const optionSelectedInfo = this.selected2.split('-')
-        const options = this.formData['options' + optionSelectedInfo[0]]
-        this.icon2 = options[optionSelectedInfo[1]].iconClass
-        this.isSelected1 = true
-        this.isSelected2 = true
-        this.isSelected3 = false
-      } else {
-        this.icon2 = ''
-        this.isSelected1 = true
-        this.isSelected2 = false
-        this.isSelected3 = true
-      }
-
-      this.icon3 = ''
-      this.isLast = false
-      this.formData.selected2 = this.selected2
-      this.$emit('changeSelected2', this.formData)
-    },
-    changeSelected3 () {
-      if (this.selected3) {
-        const optionSelectedInfo = this.selected3.split('-')
-        const options = this.formData['options' + optionSelectedInfo[0]]
-        this.icon3 = options[optionSelectedInfo[1]].iconClass
-        this.isSelected1 = true
-        this.isSelected2 = true
-        this.isSelected3 = true
-      } else {
-        this.icon3 = ''
-        this.isSelected1 = true
-        this.isSelected2 = true
-        this.isSelected3 = false
-      }
-
-      this.isLast = true
-      this.formData.selected3 = this.selected3
-      this.$emit('changeSelected3', this.formData)
-    },
-    changeTrack (track) {
-      if (this.isSelected1) {
-        switch (track) {
-          case '1':
-            this.isSelected1 = false;
-            this.isSelected2 = true;
-            this.isSelected3 = true;
-            this.isLast = false
-            break;
-          case '2':
-            this.isSelected1 = true
-            this.isSelected2 = false
-            this.isSelected3 = true
-            this.isLast = false
-            break;
-          default:
-            break;
-        }
-      }
-    },
     selectTrack (event) {
       const classBtn = event.currentTarget.className
       const trackId = event.currentTarget.getAttribute('data-id')
@@ -345,11 +198,11 @@ export default {
     },
     newSelectedTime () {
       this.newInterval = null
-      this.msg = false
+      this.isRunTemp = false
       this.$emit('newSelectedTime', true)
     },
     newTime (event, time) {
-      this.msg = true
+      this.isRunTemp = true
       this.seconds = time
       this.$emit('newTime', true)
       this.$emit('newSelectedTime', false)
@@ -365,8 +218,8 @@ export default {
         this.$emit('addName', newName)
       }
     },
-    changeMsg (isMsg) {
-      this.msg = isMsg
+    runTemp (isRunTemp) {
+      this.isRunTemp = isRunTemp
     },
     handleFocusOut () {
       let newName = {}
@@ -375,6 +228,11 @@ export default {
       newName.inputValue = ''
 
       this.$emit('addName', newName)
+    },
+    handleFocusOutTime () {
+      this.newInterval = null
+      this.isRunTemp = false
+      this.$emit('newSelectedTime', false)
     }
   },
   mounted() {
@@ -557,12 +415,14 @@ export default {
     width: 100%;
     background-color: #222;
     background-image: url('../assets/images/bg-page.jpg');
-    min-height: 48px;
+    min-height: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
     border-top: 1px dashed #808080;
+    -webkit-box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15); 
+    box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15);
 
     &-new {
       width: 100%;
@@ -590,6 +450,7 @@ export default {
       .m-form__name {
         padding-left: 0;
         justify-content: center;
+         padding-right: 0;
       }
 
       .m-button {
@@ -656,6 +517,8 @@ export default {
     border-top: 1px dashed #808080;
     display: flex;
     justify-content: center;
+    -webkit-box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15); 
+    box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15);
 
     .m-button {
       font-size: 18px;
@@ -677,7 +540,11 @@ export default {
     &-text {
       line-height: 14px;
       min-height: 14px;
-      font-size: 13px;
+      font-size: 16px;
+    }
+
+    .m-button {
+      margin: 0;
     }
   }
 

@@ -74,6 +74,9 @@ export default {
 
 <style lang="scss">
 .m-cards {
+  position: relative;
+  z-index: 1;
+  
   &__header {
     display: flex;
     justify-content: space-between;

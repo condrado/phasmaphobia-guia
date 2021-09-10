@@ -3,9 +3,6 @@
         <h1 class="app-title">Libro de registro</h1>
         <Form
             :formData="formData"
-            :pista1="pista1"
-            :pista2="pista2"
-            :pista3="pista3"
             :isHideBtn="isHideBtn"
             :isNameInput="isNameInput"
             :isNewGame="isNewGame"
@@ -13,9 +10,6 @@
             :isTime="isTime"
             :isSelectedTime="isSelectedTime"
             @selectTrunck="selectTrunck"
-            @changeSelected1="changeSelected1"
-            @changeSelected2="changeSelected2"
-            @changeSelected3="changeSelected3"
             @newGame="newGame"
             @addName="addName"
             @newTime="newTime"
@@ -74,24 +68,6 @@ export default {
   methods: {
     selectTrunck(track) {
       this.showtiposIcons(track)
-    },
-    changeSelected1 (childrenData) {
-      this.resetDisbledOptions(childrenData.options2, childrenData.selected1, '1')
-      this.resetDisbledOptions(childrenData.options3, childrenData.selected1, '1')
-      this.disbledOptions(childrenData.options2, childrenData.selected1)
-      this.disbledOptions(childrenData.options3, childrenData.selected1)
-      this.showtipos(1)
-      this.selectSearchClass(1, childrenData.selected1, childrenData.options1)
-    },
-    changeSelected2 (childrenData) {
-      this.resetDisbledOptions(childrenData.options3, childrenData.selected2, '2')
-      this.disbledOptions(childrenData.options3, childrenData.selected2)
-      this.showtipos(2)
-      this.selectSearchClass(2, childrenData.selected2, childrenData.options1)
-    },
-    changeSelected3 (childrenData) {
-      this.showtipos(3)
-      this.selectSearchClass(3, childrenData.selected3, childrenData.options1)
     },
     disbledOptions (options, selected) {
       if (selected) {
