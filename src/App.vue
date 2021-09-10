@@ -122,7 +122,7 @@ i {
   }
   &.write {
     &::before {
-      content: '\e800';
+      content: '\E801';
     }
   }
   &.handprint {
@@ -142,7 +142,7 @@ i {
   }
   &.spititbox {
     &::before {
-      content: '\e801';
+      content: '\e802';
     }
   }
   &.proyector {
@@ -152,22 +152,22 @@ i {
   }
   &.large {
     &::before {
-      content: '\E802';
+      content: '\E803';
     }
   }
   &.list {
     &::before {
-      content: '\E803';
+      content: '\E804';
     }
   }
   &.menu {
     &::before {
-      content: '\E804';
+      content: '\E805';
     }
   }
   &.close {
     &::before {
-      content: '\E805';
+      content: '\E806';
     }
   }
   &.reset {
