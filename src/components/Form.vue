@@ -112,7 +112,7 @@
           </p>
           <p class="m-form__time" v-if="isSelectedTime">
             <button class="m-button" type="button" v-on:click="newTime($event, 301)">05:00</button>
-            <button class="m-button" type="button" v-on:click="newTime($event, 11)" >02:00</button>
+            <button class="m-button" type="button" v-on:click="newTime($event, 121)" >02:00</button>
           </p>
           <div class="m-button__group">
             
