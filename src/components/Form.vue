@@ -91,28 +91,62 @@
       </li>
     </ul>
     <div class="m-form__actions">
-      <p class="m-form__name">
-        <span class="m-form__name-label" v-if="namePhan">
-          Nombre del Fantasma:
-        </span>
-         <span class="m-form__name-text">
-          {{namePhan}}
-        </span>
-      </p>
-      <button class="m-button" ><i class='reset'></i></button>
+      <template v-if="isNewGame">
+        <div class="m-form__actions-new">
+          <div class="m-form__actions-input"  v-if="isNameInput" v-click-outside="handleFocusOut">
+            <input class="m-add-name__input" placeholder="Nombre del fantasma" type="text" v-model="inputName" ref="refInputName">
+            <button class="m-button" type="button" v-on:click="addName"><i class='add'></i></button>
+          </div>
+          <button class="m-button" type="button" v-on:click="newGame">Pulse aquí para una nueva investigación</button>
+        </div>
+      </template>
+      <template v-else>
+        <div class="m-form__actions-old">
+          <p class="m-form__name">
+            <!-- <span class="m-form__name-label">
+              Nombre del Fantasma:
+            </span> -->
+            <span class="m-form__name-text">
+              {{inputName}}
+            </span>
+          </p>
+          <p class="m-form__time" v-if="isSelectedTime">
+            <button class="m-button" type="button" v-on:click="newTime($event, 301)">05:00</button>
+            <button class="m-button" type="button" v-on:click="newTime($event, 11)" >02:00</button>
+          </p>
+          <div class="m-button__group">
+            
+            <button class="m-button" type="button" v-on:click="newSelectedTime">
+              <Temporizador :seconds="seconds" :newInterval="newInterval" @changeMsg="changeMsg" :msg="msg"/>
+            </button>
+            <button class="m-button" ><i class='reset'></i></button>
+          </div>
+        </div>
+      </template>
     </div>
   </form>
 </template>
 
 <script>
+import Temporizador from '../components/Temporizador.vue'
+import ClickOutside from 'vue-click-outside'
+
 export default {
   name: 'Form',
+  components: {
+    Temporizador
+  },
   props: {
     formData: Object,
     pista1: String,
     pista2: String,
     pista3: String,
-    isHideBtn: Object
+    isHideBtn: Object,
+    isNameInput: Boolean,
+    isNewGame: Boolean,
+    inputValue: String,
+    isTime: Boolean,
+    isSelectedTime: Boolean
   },
   data() {
     return {
@@ -132,7 +166,12 @@ export default {
       namePhan: '',
       tracksSelected: 0,
       textSelected: '- Seleccione una prueba -',
-      tracksId: []
+      tracksId: [],
+      newName: '',
+      inputName: this.inputValue,
+      seconds: 0,
+      newInterval: null,
+      msg: false
     }
   },
   updated: function(){
@@ -151,6 +190,17 @@ export default {
     
     this.formData.selected3 = this.selected3
   },
+  watch: { 
+      isNameInput () {
+        setTimeout(() => {
+          console.log(this.$refs)
+          if (this.$refs.refInputName !== undefined) {
+            this.$refs.refInputName.focus()
+          }
+        }, 300);
+        
+      }
+    },
   methods: {
     changeSelected1 () {
       if (this.selected1) {
@@ -289,10 +339,49 @@ export default {
         }
       }
       this.$emit('selectTrunck', this.tracksId)
+    },
+    newGame () {
+      this.$emit('newGame', true)
+    },
+    newSelectedTime () {
+      this.newInterval = null
+      this.msg = false
+      this.$emit('newSelectedTime', true)
+    },
+    newTime (event, time) {
+      this.msg = true
+      this.seconds = time
+      this.$emit('newTime', true)
+      this.$emit('newSelectedTime', false)
+      console.log(event)
+    },
+    addName () {
+      let newName = {}
+      newName.isNameInput = false
+      newName.isNewGame = false
+      newName.inputValue = this.inputName
+
+      if (this.inputName.trim() !== '') {
+        this.$emit('addName', newName)
+      }
+    },
+    changeMsg (isMsg) {
+      this.msg = isMsg
+    },
+    handleFocusOut () {
+      let newName = {}
+      newName.isNameInput = false
+      newName.isNewGame = true
+      newName.inputValue = ''
+
+      this.$emit('addName', newName)
     }
   },
   mounted() {
     if(localStorage.namePhan) this.namePhan = localStorage.namePhan;
+  },
+  directives: {
+    ClickOutside
   }
 }
 </script>
@@ -475,20 +564,102 @@ export default {
     z-index: 1;
     border-top: 1px dashed #808080;
 
-    .m-button {
+    &-new {
+      width: 100%;
+      text-align: center;
+      position: relative;
+
+      .m-button {
+        margin: 0;
+        height: 54px;
+        font-size: 24px;
+
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &-old {
       height: 40px;
-      width: 40px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 12px;
+
+      .m-form__name {
+        padding-left: 0;
+        justify-content: center;
+      }
+
+      .m-button {
+        margin-left: 16px;
+
+        i {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &-input {
+      padding: 7px 12px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: #222;
+      background-image: url('../assets/images/bg-page.jpg');
+      width: 100%;
+
+      .m-button {
+        height: 40px;
+        margin: 0;
+        padding: 0 0 0 12px;
+      }
+
+      input {
+        width: calc(100% - 40px);
+        padding: 8px 10px;
+        border: 0;
+        border-radius: 5px;
+      }
+    }
+
+    .m-button {
+      width: auto;
       border: 0;
       background-color: transparent;
       color: #ffffff;
-      margin-right: 12px;
-      font-size: 24px;
+      font-size: 14px;
+
+      &__group {
+        display: flex;
+      }
     }
 
     i {
       &::after {
         display: none;
       }
+    }
+  }
+
+  &__time {
+    background-color: #222;
+    background-image: url('../assets/images/bg-page.jpg');
+    position: absolute;
+    width: 100%;
+    min-height: 48px;
+    left: 0;
+    bottom: 47px;
+    margin: 0;
+    border-top: 1px dashed #808080;
+    display: flex;
+    justify-content: center;
+
+    .m-button {
+      font-size: 18px;
+      margin: 0 16px;
     }
   }
 
@@ -506,6 +677,7 @@ export default {
     &-text {
       line-height: 14px;
       min-height: 14px;
+      font-size: 13px;
     }
   }
 

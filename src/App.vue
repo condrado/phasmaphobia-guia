@@ -1,7 +1,17 @@
 <template>
   <div id="app">
     <Menu />
-    <router-view/>
+    <router-view 
+      :isNameInput="isNameInput"
+      :isNewGame="isNewGame"
+      :inputValue="inputValue"
+      :isTime="isTime"
+      :isSelectedTime="isSelectedTime"
+      @newGame="newGame"
+      @addName="addName"
+      @newTime="newTime"
+      @newSelectedTime="newSelectedTime"
+    />
   </div>
 </template>
 
@@ -14,9 +24,55 @@ export default {
     Menu
   },
   data() {
-    return {}
+    return {
+      isNameInput: false,
+      isNewGame: true,
+      inputValue: '',
+      isTime: false,
+      isSelectedTime: false
+    }
   },
-  methods: {}
+  methods: {
+    newGame (activeNameInput) {
+      this.isNameInput = activeNameInput
+    },
+    newSelectedTime (activeSelectedTime) {
+      this.isSelectedTime = activeSelectedTime
+    },
+    newTime (activeTime) {
+      this.isTime = activeTime
+    },
+    addName (newName) {
+      this.isNameInput = newName.isNameInput
+      this.isNewGame = newName.isNewGame
+      this.inputValue = newName.inputValue
+
+      let localStorageAct = localStorage.namesPhanStr
+      let localStorageActArr = []
+
+      if(localStorageAct) {
+          localStorageAct = this.newName + '|' + localStorageAct;
+          localStorageActArr = localStorageAct.split('|')
+          localStorageActArr.pop()
+      } else {
+          localStorageAct = this.newName + '|'
+          localStorageActArr.push(this.newName)
+      }
+
+      this.namesPhan = localStorageActArr
+
+      localStorage.namesPhanStr = localStorageAct
+      
+      if (localStorageActArr.length > 0) {
+          localStorage.namePhan = localStorageActArr[0]
+      } else {
+          localStorage.namePhan = ''
+      }
+    },
+  },
+  mounted() {
+    console.log(this.inputValue)
+  }
 }
 </script>
 
@@ -116,7 +172,7 @@ i {
   }
   &.reset {
     &::before {
-      content: '\E806';
+      content: '\E807';
     }
   }
   &.add {
@@ -127,6 +183,11 @@ i {
   &.remove {
     &::before {
       content: '\f235';
+    }
+  }
+  &.time {
+    &::before {
+      content: '\E800';
     }
   }
 }

@@ -7,10 +7,19 @@
             :pista2="pista2"
             :pista3="pista3"
             :isHideBtn="isHideBtn"
+            :isNameInput="isNameInput"
+            :isNewGame="isNewGame"
+            :inputValue="inputValue"
+            :isTime="isTime"
+            :isSelectedTime="isSelectedTime"
             @selectTrunck="selectTrunck"
             @changeSelected1="changeSelected1"
             @changeSelected2="changeSelected2"
             @changeSelected3="changeSelected3"
+            @newGame="newGame"
+            @addName="addName"
+            @newTime="newTime"
+            @newSelectedTime="newSelectedTime"
         />
         <Cards 
           :tableData="tableData"
@@ -33,6 +42,13 @@ export default {
   components: {
     Form,
     Cards
+  },
+  props: {
+    isNameInput: Boolean,
+    isNewGame: Boolean,
+    inputValue: String,
+    isTime: Boolean,
+    isSelectedTime: Boolean
   },
   data() {
     return {
@@ -245,7 +261,19 @@ export default {
             break;
         }
       }
-    }
+    },
+    newGame (activeNameInput) {
+      this.$emit('newGame', activeNameInput)
+    },
+    newSelectedTime (activeSelectedTime) {
+      this.$emit('newSelectedTime', activeSelectedTime)
+    },
+    newTime (activeTime) {
+      this.$emit('newTime', activeTime)
+    },
+    addName (newName) {
+      this.$emit('addName', newName)
+    },
   },
   mounted() {
     // const api = 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'

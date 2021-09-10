@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue, VueAxios, axios)
+Vue.use(BootstrapVue, VueAxios, axios, require('vue-moment'))
 
 Vue.config.productionTip = false
 

@@ -9,7 +9,7 @@
     <div class="m-menu__container" v-bind:class="{ show: isOpen }">
       <ul v-on:click="closeMenu">
         <li>
-          <router-link class="link" :to="{path: urlHome}" >Guía fantasmas</router-link>
+          <router-link class="link" :to="{path: urlHome}" >Libro registro</router-link>
         </li>
         <li>
           <router-link class="link" :to="{path: urlInstrumentos}">Instrumentos</router-link>
