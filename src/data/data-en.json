@@ -1,154 +1,51 @@
 {
     "formData":{
-       "selected1":null,
-       "selected2":null,
-       "selected3":null,
-       "options1":[
+       "options":[
           {
              "value":null,
-             "text":"Selecciona una pista",
+             "text":"Select a track",
              "disabled":false,
              "iconClass":""
           },
           {
-             "value":"1-1",
-             "text":"EMF nivel 5",
+             "value":"1",
+             "text":"EMF level 5",
              "disabled":false,
              "iconClass":"emf"
           },
           {
-             "value":"1-2",
-             "text":"Escritura fantasma",
+             "value":"2",
+             "text":"Ghost writing",
              "disabled":false,
              "iconClass":"write"
           },
           {
-             "value":"1-3",
-             "text":"Huellas dactilares",
+             "value":"3",
+             "text":"Fingerprints",
              "disabled":false,
              "iconClass":"handprint"
           },
           {
-             "value":"1-4",
-             "text":"Orbes",
+             "value":"4",
+             "text":"Ghost Orb",
              "disabled":false,
              "iconClass":"orbes"
           },
           {
-             "value":"1-5",
-             "text":"Temperatura bajo cero",
+             "value":"5",
+             "text":"Freezing Temperatures",
              "disabled":false,
              "iconClass":"temp"
           },
           {
-             "value":"1-6",
+             "value":"6",
              "text":"Spirit Box",
              "disabled":false,
              "iconClass":"spititbox"
           },
           {
-             "value":"1-7",
-             "text":"Proyector D.O.T.S",
-             "disabled":false,
-             "iconClass":"proyector"
-          }
-       ],
-       "options2":[
-          {
-             "value":null,
-             "text":"Selecciona una pista",
-             "disabled":false,
-             "iconClass":""
-          },
-          {
-             "value":"2-1",
-             "text":"EMF nivel 5",
-             "disabled":false,
-             "iconClass":"emf"
-          },
-          {
-             "value":"2-2",
-             "text":"Escritura fantasma",
-             "disabled":false,
-             "iconClass":"write"
-          },
-          {
-             "value":"2-3",
-             "text":"Huellas dactilares",
-             "disabled":false,
-             "iconClass":"handprint"
-          },
-          {
-             "value":"2-4",
-             "text":"Orbes",
-             "disabled":false,
-             "iconClass":"orbes"
-          },
-          {
-             "value":"2-5",
-             "text":"Temperatura bajo cero",
-             "disabled":false,
-             "iconClass":"temp"
-          },
-          {
-             "value":"2-6",
-             "text":"Spirit Box",
-             "disabled":false,
-             "iconClass":"spititbox"
-          },
-          {
-             "value":"2-7",
-             "text":"Proyector D.O.T.S",
-             "disabled":false,
-             "iconClass":"proyector"
-          }
-       ],
-       "options3":[
-          {
-             "value":null,
-             "text":"Selecciona una pista",
-             "disabled":false,
-             "iconClass":""
-          },
-          {
-             "value":"3-1",
-             "text":"EMF nivel 5",
-             "disabled":false,
-             "iconClass":"emf"
-          },
-          {
-             "value":"3-2",
-             "text":"Escritura fantasma",
-             "disabled":false,
-             "iconClass":"write"
-          },
-          {
-             "value":"3-3",
-             "text":"Huellas dactilares",
-             "disabled":false,
-             "iconClass":"handprint"
-          },
-          {
-             "value":"3-4",
-             "text":"Orbes",
-             "disabled":false,
-             "iconClass":"orbes"
-          },
-          {
-             "value":"3-5",
-             "text":"Temperatura bajo cero",
-             "disabled":false,
-             "iconClass":"temp"
-          },
-          {
-             "value":"3-6",
-             "text":"Spirit Box",
-             "disabled":false,
-             "iconClass":"spititbox"
-          },
-          {
-             "value":"3-7",
-             "text":"Proyector D.O.T.S",
+             "value":"7",
+             "text":"D.O.T.S Projector",
              "disabled":false,
              "iconClass":"proyector"
           }
