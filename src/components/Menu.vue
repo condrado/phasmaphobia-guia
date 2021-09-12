@@ -24,7 +24,7 @@
           <router-link class="link" :to="{path: urlWebsRelacionadas}">Webs relacionadas</router-link>
         </li>
       </ul>
-      <span class="version">0.9.4</span>
+      <span class="version">0.9.5</span>
     </div>
   </div>
 </template>
