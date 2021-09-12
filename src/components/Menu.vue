@@ -22,9 +22,9 @@
         </li>
         <li>
           <router-link class="link" :to="{path: urlWebsRelacionadas}">Webs relacionadas</router-link>
-          <!-- <a class="link" href="https://kineticgames.co.uk/" target="_blank">Web oficial</a> -->
         </li>
       </ul>
+      <span class="version">0.9.4</span>
     </div>
   </div>
 </template>
@@ -77,6 +77,7 @@ export default {
   z-index: 3;
   right: 0;
   top: 0;
+  height: 100vh;
 
   &__btn {
     border: 0;
@@ -128,6 +129,16 @@ export default {
     li {
       padding: 10px 0;
     }
+  }
+
+  .version {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 12px;
   }
 }
 </style>
