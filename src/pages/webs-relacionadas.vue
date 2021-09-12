@@ -20,7 +20,7 @@
 
 <script>
 // import axios from "axios";
-import json from '../data/data.json'
+import jsonEs from '../data/data-es.json'
 
 export default {
   name: 'WebsRelacionadas',
@@ -28,16 +28,10 @@ export default {
   data() {
     return {
         // instrumentData: []
-        pagesData: json.pagesData,
+        pagesData: jsonEs.pagesData,
     }
   },
-  methods: {},
-  mounted() {
-    // const api = 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
-    // axios.get(api).then((response) => {
-    //   console.log(response.data)
-    // })
-  }
+  methods: {}
 }
 </script>
 

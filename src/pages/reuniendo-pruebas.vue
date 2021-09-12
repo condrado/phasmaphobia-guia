@@ -19,24 +19,17 @@
 
 <script>
 // import axios from "axios";
-import json from '../data/data.json'
+import jsonEs from '../data/data-es.json'
 
 export default {
   name: 'ReuniendoPruebas',
   components: {},
   data() {
     return {
-        // evidenceData: [],
-        evidenceData: json.evidenceData,
+        evidenceData: jsonEs.evidenceData,
     }
   },
-  methods: {},
-  mounted() {
-    // const api = 'https://raw.githubusercontent.com/conradoTCK/phasmaphobia-guia/master/src/data/data.json'
-    // axios.get(api).then((response) => {
-    //   console.log(response.data)
-    // })
-  }
+  methods: {}
 }
 </script>
 

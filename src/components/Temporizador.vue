@@ -73,6 +73,7 @@ export default {
           setTimeout(() => {
             this.classTemp = ''
           }, 200);
+          
           setTimeout(() => {
             this.alertTemp = false
           }, 240);
