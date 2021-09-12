@@ -14,7 +14,7 @@
             <h3 class="blog__title col-12 text-center">{{item.tipo}}</h3>
             <div class="blog__figure col-4" :class="pistas">
               <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
-              <p class="paragraph text-center" v-html="item.pista" :class="[pista1, pista2, pista3]"></p>
+              <p class="paragraph text-center" v-html="item.pista"></p>
             </div>
             <div class="blog__body col-8">
                 <h4>Fortaleza</h4>
@@ -34,20 +34,13 @@ export default {
   name: 'Cards',
   props: {
     tableData: Object,
-    pista1: String,
-    pista2: String,
-    pista3: String,
     pistas: String
   },
   data() {
     return {
       fields: this.tableData.fields,
       items: this.tableData.items,
-      isList: false,
-      pista1Act: this.pista1,
-      pista2Act: this.pista2,
-      pista3Act: this.pista3,
-      patchs: this.pistas
+      isList: false
     }
   },
   methods: {
@@ -83,7 +76,7 @@ export default {
     align-items: center;
     position: fixed;
     z-index: 2;
-    top: 171px;
+    top: 165px;
     left: 0;
     width: 100%;
     padding: 0 12px;

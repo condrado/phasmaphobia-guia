@@ -7,16 +7,25 @@
       :inputValue="inputValue"
       :isTime="isTime"
       :isSelectedTime="isSelectedTime"
+      :isHideBtn="isHideBtn"
+      :tracksSelected="tracksSelected"
+      :tracksId="tracksId"
+      :textSelected="textSelected"
+      :activeBtn="activeBtn"
+      :pistas="pistas"
       @newGame="newGame"
       @addName="addName"
       @newTime="newTime"
       @newSelectedTime="newSelectedTime"
+      @handleTracks="handleTracks"
+      @selectTrack="selectTrack"
     />
   </div>
 </template>
 
 <script>
 import Menu from './components/Menu.vue'
+import jsonEs from './data/data-es.json'
 
 export default {
   name: 'App',
@@ -31,7 +40,31 @@ export default {
       isTime: false,
       isSelectedTime: false,
       names: [],
-      isFirstName: true
+      isFirstName: true,
+      tableData: jsonEs.tableData,
+      formData: jsonEs.formData,
+      tracksSelected: 0,
+      tracksId: [],
+      textSelected: '- Seleccione una prueba -',
+      pistas: '',
+      isHideBtn: {
+        isHideBtn1: false,
+        isHideBtn2: false,
+        isHideBtn3: false,
+        isHideBtn4: false,
+        isHideBtn5: false,
+        isHideBtn6: false,
+        isHideBtn7: false
+      },
+      activeBtn: {
+        activeBtn1: false,
+        activeBtn2: false,
+        activeBtn3: false,
+        activeBtn4: false,
+        activeBtn5: false,
+        activeBtn6: false,
+        activeBtn7: false
+      }
     }
   },
   methods: {
@@ -61,7 +94,111 @@ export default {
       }
 
       localStorage.namesPhanStr = this.names.join('|')
-    }
+    },
+    handleTracks (tracks) {
+      let classIcons = ''
+      let tracksPhant = []
+      let numberTracks = Object.values(this.isHideBtn).length
+
+      this.tableData.items.forEach(item => {
+        let isActive = true
+        let pistaId = []
+
+        tracks.forEach(track => {
+          if (item.pistaId.indexOf(track) < 0) {
+            isActive = false
+          } else {
+            if (classIcons.indexOf(this.formData.options[track].iconClass) < 0) {
+              classIcons = classIcons + ' ' + this.formData.options[track].iconClass
+            }
+
+            pistaId.push(item.pistaId)
+          }
+        })
+
+        if (isActive) {
+          tracksPhant.push(pistaId.join('-'))
+        }
+
+        item.isActive = isActive
+      })
+
+      for (let index = 0; index < numberTracks; index++) {
+        const i = index + 1
+        const tracksPhantStr = tracksPhant.join('-')
+
+        if (tracks.length > 0) {
+          if (tracksPhantStr.indexOf(i + '') < 0) {
+            this.isHideBtn['isHideBtn' + i] = true
+          } else {
+            this.isHideBtn['isHideBtn' + i] = false
+          }
+        } else {
+          this.isHideBtn['isHideBtn' + i] = false
+        }
+      }
+
+      this.pistas = classIcons
+    },
+    selectTrack (event) {
+      const classBtn = event.currentTarget.className
+      const trackId = event.currentTarget.getAttribute('data-id')
+      let textSelectedAct = this.textSelected
+      let tracksSelectedAct = this.tracksSelected
+      let textAct = event.currentTarget.nextElementSibling.textContent
+      let isEnd = true
+
+      if (classBtn.indexOf('active') > -1) {
+        if (tracksSelectedAct > 0) {
+          this.activeBtn['activeBtn' + trackId] = ''
+          this.tracksSelected =  tracksSelectedAct - 1
+
+          if (textSelectedAct.indexOf(textAct + ' • ') > -1) {
+            textAct = textAct + ' • '
+            isEnd = false
+          }
+
+          const tracksSelectedActArray = textSelectedAct.split(textAct)
+          
+          switch (this.tracksSelected) {
+            case 0:
+              this.textSelected = '- Seleccione una prueba -'
+              break;
+            case 1:
+              this.textSelected = tracksSelectedActArray.join('').replace(' • ','')
+              break;
+            case 2:
+              if (!isEnd) {
+                this.textSelected = tracksSelectedActArray.join('')
+              } else {
+                this.textSelected = tracksSelectedActArray.join('').substr(0, tracksSelectedActArray.join('').length - 3)
+              }
+              break;
+            default:
+              this.textSelected = tracksSelectedActArray.join('')
+              break;
+          }
+
+          var indice = this.tracksId.indexOf(trackId)
+          this.tracksId.splice(indice, 1)
+        }
+      } else {
+        if (tracksSelectedAct < 3) {
+          this.activeBtn['activeBtn' + trackId] = ' active'
+          this.tracksSelected =  tracksSelectedAct + 1
+
+          if (this.tracksSelected === 1) {
+            this.textSelected = textAct
+          } else {
+            this.textSelected = textSelectedAct + ' • ' + textAct
+          }
+
+          this.tracksId.push(trackId)
+        }
+      }
+      this.handleTracks(this.tracksId)
+    },
+
   },
   mounted() {
     var localStorageAct = localStorage.namesPhanStr
@@ -226,12 +363,12 @@ h3 {
 }
 
 .app-title {
-  padding: 8px 60px 16px 12px;
+  padding: 8px 60px 8px 12px;
   margin: 0;
   position: fixed;
   top: 0;
   left: 0;
-  height: 57px;
+  height: 50px;
   text-align: left;
   background-color: #222;
   background-image: url('assets/images/bg-page.jpg');

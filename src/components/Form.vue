@@ -3,53 +3,53 @@
     <div class="row">
       <div class="col col-12">
         <div class="m-form__btn-group">
+          <p class="m-form__btn-group-text-selected">
+            {{textSelected}}
+          </p>
           <ul class="m-form__btn-group-list">
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="1" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn1">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn1" data-id="1" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn1">
                 <i class="emf"></i>
               </button>
               <span class="m-form__check-text">EMF nivel 5</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="2" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn2">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn2" data-id="2" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn2">
                 <i class="write"></i>
               </button>
               <span class="m-form__check-text">Escritura fantasma</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="3" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn3">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn3" data-id="3" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn3">
                 <i class="handprint"></i>
               </button>
               <span class="m-form__check-text">Huellas dactilares</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="4" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn4">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn4" data-id="4" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn4">
                 <i class="orbes"></i>
               </button>
               <span class="m-form__check-text">Orbes</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="5" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn5">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn5" data-id="5" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn5">
                 <i class="temp"></i>
               </button>
               <span class="m-form__check-text">Temperatura bajo cero</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="6" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn6">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn6" data-id="6" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn6">
                 <i class="spititbox"></i>
               </button>
               <span class="m-form__check-text">Spirit Box</span>
             </li>
             <li>
-              <button type="button" class="m-form__btn m-form__check" data-id="7" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn7">
+              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn7" data-id="7" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn7">
                 <i class="proyector"></i>
               </button>
               <span class="m-form__check-text">Proyector D.O.T.S</span>
             </li>
           </ul>
-          <p class="m-form__btn-group-text-selected">
-            {{textSelected}}
-          </p>
         </div>
       </div>
     </div>
@@ -104,7 +104,11 @@ export default {
     isNewGame: Boolean,
     inputValue: String,
     isTime: Boolean,
-    isSelectedTime: Boolean
+    isSelectedTime: Boolean,
+    tracksSelected: Number,
+    tracksId: Array,
+    textSelected: String,
+    activeBtn: Object
   },
   data() {
     return {
@@ -113,9 +117,6 @@ export default {
       icon3: '',
       isLast: false,
       namePhan: '',
-      tracksSelected: 0,
-      textSelected: '- Seleccione una prueba -',
-      tracksId: [],
       newName: '',
       inputName: this.inputValue,
       seconds: 0,
@@ -126,7 +127,6 @@ export default {
   watch: { 
       isNameInput () {
         setTimeout(() => {
-          console.log(this.$refs)
           if (this.$refs.refInputName !== undefined) {
             this.$refs.refInputName.focus()
           }
@@ -136,62 +136,7 @@ export default {
     },
   methods: {
     selectTrack (event) {
-      const classBtn = event.currentTarget.className
-      const trackId = event.currentTarget.getAttribute('data-id')
-      let textSelectedAct = this.textSelected
-      let tracksSelectedAct = this.tracksSelected
-      let textAct = event.currentTarget.nextElementSibling.textContent
-      let isEnd = true
-
-      if (classBtn.indexOf('active') > -1) {
-        if (tracksSelectedAct > 0) {
-          event.currentTarget.classList.remove("active");
-          this.tracksSelected =  tracksSelectedAct - 1
-
-          if (textSelectedAct.indexOf(textAct + ' • ') > -1) {
-            textAct = textAct + ' • '
-            isEnd = false
-          }
-
-          const tracksSelectedActArray = textSelectedAct.split(textAct)
-          
-          switch (this.tracksSelected) {
-            case 0:
-              this.textSelected = '- Seleccione una prueba -'
-              break;
-            case 1:
-              this.textSelected = tracksSelectedActArray.join('').replace(' • ','')
-              break;
-            case 2:
-              if (!isEnd) {
-                this.textSelected = tracksSelectedActArray.join('')
-              } else {
-                this.textSelected = tracksSelectedActArray.join('').substr(0, tracksSelectedActArray.join('').length - 3)
-              }
-              break;
-            default:
-              this.textSelected = tracksSelectedActArray.join('')
-              break;
-          }
-
-          var indice = this.tracksId.indexOf(trackId)
-          this.tracksId.splice(indice, 1)
-        }
-      } else {
-        if (tracksSelectedAct < 3) {
-          event.currentTarget.classList.add("active")
-          this.tracksSelected =  tracksSelectedAct + 1
-
-          if (this.tracksSelected === 1) {
-            this.textSelected = textAct
-          } else {
-            this.textSelected = textSelectedAct + ' • ' + textAct
-          }
-
-          this.tracksId.push(trackId)
-        }
-      }
-      this.$emit('selectTrunck', this.tracksId)
+      this.$emit('selectTrunck', event)
     },
     newGame () {
       this.$emit('newGame', true)
@@ -249,7 +194,7 @@ export default {
   height: 115px;
   display: block;
   position: fixed;
-  top: 57px;
+  top: 50px;
   left: 0;
   width: 100%;
   background-color: #222;
@@ -359,10 +304,17 @@ export default {
         padding: 0;
         list-style-type: none;
         position: relative;
+        margin: 14px 0 0;
       }
 
       &-text-selected {
         text-align: center;
+        line-height: 18px;
+        min-height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
       }
     }
   }
@@ -491,7 +443,8 @@ export default {
       border: 0;
       background-color: transparent;
       color: #ffffff;
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 18px;
 
       &__group {
         display: flex;
