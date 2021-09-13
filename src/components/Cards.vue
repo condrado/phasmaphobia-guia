@@ -15,9 +15,9 @@
             <h3 class="blog__title col-12 text-center">{{ $t(item.tipo) }}</h3>
             <div class="blog__figure col-4" :class="pistas">
               <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
-                <p class="paragraph text-center">
-                  <i v-for="pista in item.pista" :key="pista.title" :data-title=$t(pista.title) :class=pista.class></i>
-                </p>
+              <p class="paragraph text-center">
+                <i v-for="pista in item.pista" :key="pista.title" :data-title=$t(pista.title) :class=pista.class></i>
+              </p>
             </div>
             <div class="blog__body col-8">
               <h4>{{ $t('cards.fortress')}}</h4>

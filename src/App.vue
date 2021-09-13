@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <InitMove v-if="isInitMove" :activeInitMove="activeInitMove" :activeInitMoveImg="activeInitMoveImg"/>
     <Menu />
     <router-view 
       :isNameInput="isNameInput"
@@ -27,14 +28,19 @@
 <script>
 import Menu from './components/Menu.vue'
 import jsonData from './data/data.json'
+import InitMove from './components/Init-move.vue'
 
 export default {
   name: 'App',
   components: {
-    Menu
+    Menu,
+    InitMove
   },
   data() {
     return {
+      isInitMove: true,
+      activeInitMove: 'active',
+      activeInitMoveImg: '',
       isNameInput: false,
       isNewGame: true,
       inputValue: '',
@@ -240,6 +246,23 @@ export default {
       var localStorageActArr = localStorageAct.split('|')
       this.names = localStorageActArr
     }
+
+
+    setTimeout(() => {
+      this.activeInitMoveImg = 'active'
+    }, 1000);
+
+    setTimeout(() => {
+      this.activeInitMoveImg = ''
+    }, 3000);
+
+    setTimeout(() => {
+      this.activeInitMove = ''
+    }, 4000);
+
+    setTimeout(() => {
+      this.isInitMove = false
+    }, 5000);
   }
 }
 </script>
