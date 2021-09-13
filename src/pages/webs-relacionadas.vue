@@ -20,7 +20,7 @@
 
 <script>
 // import axios from "axios";
-import jsonEs from '../data/data-es.json'
+import jsonData from '../data/data.json'
 
 export default {
   name: 'WebsRelacionadas',
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
         // instrumentData: []
-        pagesData: jsonEs.pagesData,
+        pagesData: jsonData.pagesData,
     }
   },
   methods: {}

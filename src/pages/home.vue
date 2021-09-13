@@ -1,6 +1,6 @@
 <template>
     <div class="container-md">
-        <h1 class="app-title">Libro de registro</h1>
+        <h1 class="app-title">{{ $t('homeTitle') }}</h1>
         <Form
             :formData="formData"
             :isHideBtn="isHideBtn"
@@ -29,7 +29,7 @@
 <script>
 import Form from '../components/Form.vue'
 import Cards from '../components/Cards.vue'
-import jsonEs from '../data/data-es.json'
+import jsonData from '../data/data.json'
 
 export default {
   name: 'Home',
@@ -48,12 +48,13 @@ export default {
     tracksId: Array,
     textSelected: String,
     activeBtn: Object,
-    pistas: String
+    pistas: String,
+    tableData: Object
   },
   data() {
     return {
-      formData: jsonEs.formData,
-      tableData: jsonEs.tableData,
+      formData: jsonData.formData,
+      homeTitle: jsonData.homeTitle,
     }
   },
   methods: {

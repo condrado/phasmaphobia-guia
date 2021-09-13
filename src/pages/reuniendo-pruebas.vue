@@ -1,15 +1,15 @@
 <template>
     <div class="container-md">
-        <h1 class="app-title">Reuniendo pruebas</h1>
+        <h1 class="app-title">{{ $t('evidenceTitle') }}</h1>
         <dir class="m-content">
             <template v-for="(evidence) in evidenceData">
                 <article class="m-article" :key=evidence.title>
-                    <h2>{{evidence.title}}</h2>
+                    <h2>{{ $t(evidence.title) }}</h2>
                     <div class="m-content__p">
                         <figure v-bind:class="{patch1: evidence.patch == 1, patch2: evidence.patch == 2, patch3: evidence.patch == 3}">
                             <img class="m-content__img" :src="require(`../assets/images/${evidence.img}.jpg`)" alt="f"/>
                         </figure>
-                        <span>{{evidence.desc}}</span>
+                        <span>{{ $t(evidence.desc) }}</span>
                     </div>
                 </article>
             </template>
@@ -19,14 +19,15 @@
 
 <script>
 // import axios from "axios";
-import jsonEs from '../data/data-es.json'
+import jsonData from '../data/data.json'
 
 export default {
   name: 'ReuniendoPruebas',
   components: {},
   data() {
     return {
-        evidenceData: jsonEs.evidenceData,
+        evidenceData: jsonData.evidenceData,
+        evidenceTitle: jsonData.evidenceTitle
     }
   },
   methods: {}

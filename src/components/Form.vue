@@ -4,51 +4,24 @@
       <div class="col col-12">
         <div class="m-form__btn-group">
           <p class="m-form__btn-group-text-selected">
-            {{textSelected}}
+            <span v-if="textSelected">
+              <template v-for="(evidence) in evidences">
+                <span v-if="evidence.value" :key=evidence.value :class="activeBtn['activeBtn' + evidence.value]">{{ $t(evidence.text) }}</span>
+              </template>
+            </span>
+            <span class="w" v-else>
+              - {{ $t('evidences.title.selectTrack') }} -
+            </span>
           </p>
           <ul class="m-form__btn-group-list">
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn1" data-id="1" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn1">
-                <i class="emf"></i>
-              </button>
-              <span class="m-form__check-text">EMF nivel 5</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn2" data-id="2" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn2">
-                <i class="write"></i>
-              </button>
-              <span class="m-form__check-text">Escritura fantasma</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn3" data-id="3" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn3">
-                <i class="handprint"></i>
-              </button>
-              <span class="m-form__check-text">Huellas dactilares</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn4" data-id="4" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn4">
-                <i class="orbes"></i>
-              </button>
-              <span class="m-form__check-text">Orbes</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn5" data-id="5" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn5">
-                <i class="temp"></i>
-              </button>
-              <span class="m-form__check-text">Temperatura bajo cero</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn6" data-id="6" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn6">
-                <i class="spititbox"></i>
-              </button>
-              <span class="m-form__check-text">Spirit Box</span>
-            </li>
-            <li>
-              <button type="button" class="m-form__btn m-form__check" :class="activeBtn.activeBtn7" data-id="7" v-on:click="selectTrack" :disabled="isHideBtn.isHideBtn7">
-                <i class="proyector"></i>
-              </button>
-              <span class="m-form__check-text">Proyector D.O.T.S</span>
-            </li>
+            <template v-for="(evidence) in evidences">
+              <li :key=evidence.value v-if="evidence.iconClass">
+                <button type="button" class="m-form__btn m-form__check" :class="activeBtn['activeBtn' + evidence.value]" :data-id="evidence.value" v-on:click="selectTrack" :disabled="isHideBtn['isHideBtn' + evidence.value]">
+                  <i :class="evidence.iconClass"></i>
+                </button>
+                <span class="m-form__check-text">{{ $t(evidence.text) }}</span>
+              </li>
+            </template>
           </ul>
         </div>
       </div>
@@ -60,7 +33,7 @@
             <input class="m-add-name__input" placeholder="Nombre del fantasma" type="text" v-model="inputName" ref="refInputName">
             <button class="m-button" type="button" v-on:click="addName"><i class='add'></i></button>
           </div>
-          <button class="m-button" type="button" v-on:click="newGame">Pulse aquí para una nueva investigación</button>
+          <button class="m-button" type="button" v-on:click="newGame">{{ $t('actions.init') }}</button>
         </div>
       </template>
       <template v-else>
@@ -91,6 +64,7 @@
 <script>
 import Temporizador from '../components/Temporizador.vue'
 import ClickOutside from 'vue-click-outside'
+import jsonData from '../data/data.json'
 
 export default {
   name: 'Form',
@@ -121,7 +95,8 @@ export default {
       inputName: this.inputValue,
       seconds: 0,
       newInterval: null,
-      isRunTemp: false
+      isRunTemp: false,
+      evidences: jsonData.formData.options,
     }
   },
   watch: { 
@@ -315,6 +290,56 @@ export default {
         justify-content: center;
         align-items: center;
         margin: 0;
+        font-size: 15px;
+        opacity: 0.7;
+
+        > span {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+
+          span {
+            display: none;
+
+            &.active {
+              display: block;
+            }
+            
+            &.active1,
+            &.active2,
+            &.active3 {
+              display: block;
+
+              &.end {
+                &::after {
+                  content: '';
+                }
+              }
+            }
+
+            &.active1 {
+              order: 1;
+
+              &::after {
+                content: ', ';
+                margin-right: 5px;
+              }
+            }
+
+            &.active2 {
+              order: 2;
+              
+              &::after {
+                content: ', ';
+                margin-right: 8px;
+              }
+            }
+
+            &.active3 {
+               order: 3;
+            }
+          }
+        }
       }
     }
   }
@@ -371,7 +396,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
     border-top: 1px dashed #808080;
     -webkit-box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15); 
     box-shadow: 0px -5px 5px -1px rgba(255,255,255,0.15);
@@ -380,6 +405,8 @@ export default {
       width: 100%;
       text-align: center;
       position: relative;
+      background-color: #222;
+      background-image: url('../assets/images/bg-page.jpg');
 
       .m-button {
         margin: 0;
@@ -443,7 +470,7 @@ export default {
       border: 0;
       background-color: transparent;
       color: #ffffff;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 18px;
 
       &__group {

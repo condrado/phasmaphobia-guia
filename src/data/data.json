@@ -1,0 +1,513 @@
+{
+   "formData":{
+      "options":[
+         {
+            "value":null,
+            "text":"evidences.title.selectTrack",
+            "disabled":false,
+            "iconClass":""
+         },
+         {
+            "value":"1",
+            "text":"evidences.title.emf",
+            "disabled":false,
+            "iconClass":"emf"
+         },
+         {
+            "value":"2",
+            "text":"evidences.title.ghostWriting",
+            "disabled":false,
+            "iconClass":"write"
+         },
+         {
+            "value":"3",
+            "text":"evidences.title.fingerprints",
+            "disabled":false,
+            "iconClass":"handprint"
+         },
+         {
+            "value":"4",
+            "text":"evidences.title.ghostOrb",
+            "disabled":false,
+            "iconClass":"orbes"
+         },
+         {
+            "value":"5",
+            "text":"evidences.title.freezingTemperatures",
+            "disabled":false,
+            "iconClass":"temp"
+         },
+         {
+            "value":"6",
+            "text":"evidences.title.spiritBox",
+            "disabled":false,
+            "iconClass":"spiritbox"
+         },
+         {
+            "value":"7",
+            "text":"evidences.title.dots",
+            "disabled":false,
+            "iconClass":"proyector"
+         }
+      ]
+   },
+   "tableData":{
+      "fields":[
+         "Tipos",
+         "Fortaleza",
+         "Debilidad",
+         "Pista"
+      ],
+      "items":[
+         {
+            "isActive":true,
+            "pistaId":"1-6-2",
+            "tipo":"cards.ghost.type.spirit",
+            "fortaleza":"cards.ghost.fortress.spirit",
+            "debilidad":"cards.ghost.weakness.spirit",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               }
+            ],
+            "img": "f-espi",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-6-7",
+            "tipo":"cards.ghost.type.wraith",
+            "fortaleza":"cards.ghost.fortress.wraith",
+            "debilidad":"cards.ghost.weakness.wraith",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-espe",
+            "patch": "2"
+         },
+         {
+            "isActive":true,
+            "pistaId":"6-3-7",
+            "tipo":"cards.ghost.type.phantom",
+            "fortaleza":"cards.ghost.fortress.phantom",
+            "debilidad":"cards.ghost.weakness.phantom",
+            "pista": [
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-ente",
+            "patch": "3"
+         },
+         {
+            "isActive":true,
+            "pistaId":"6-3-2",
+            "tipo":"cards.ghost.type.poltergeist",
+            "fortaleza":"cards.ghost.fortress.poltergeist",
+            "debilidad":"cards.ghost.weakness.poltergeist",
+            "pista": [
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               }
+            ],
+            "img": "f-polt",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"3-4-7",
+            "tipo":"cards.ghost.type.banshee",
+            "fortaleza":"cards.ghost.fortress.banshee",
+            "debilidad":"cards.ghost.weakness.banshee",
+            "pista": [
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-bans",
+            "patch": "2"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-3-5",
+            "tipo":"cards.ghost.type.jinn",
+            "fortaleza":"cards.ghost.fortress.jinn",
+            "debilidad":"cards.ghost.weakness.jinn",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-jinn",
+            "patch": "3"
+         },
+         {
+            "isActive":true,
+            "pistaId":"6-4-2",
+            "tipo":"cards.ghost.type.mare",
+            "fortaleza":"cards.ghost.fortress.mare",
+            "debilidad":"cards.ghost.weakness.mare",
+            "pista": [
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               }
+            ],
+            "img": "f-pesa",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"4-2-5",
+            "tipo":"cards.ghost.type.revenant",
+            "fortaleza":"cards.ghost.fortress.revenant",
+            "debilidad":"cards.ghost.weakness.revenant",
+            "pista": [
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-reve",
+            "patch": "2"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-2-5",
+            "tipo":"cards.ghost.type.shade",
+            "fortaleza":"cards.ghost.fortress.shade",
+            "debilidad":"cards.ghost.weakness.shade",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-somb",
+            "patch": "3"
+         },
+         {
+            "isActive":true,
+            "pistaId":"3-2-5",
+            "tipo":"cards.ghost.type.demon",
+            "fortaleza":"cards.ghost.fortress.demon",
+            "debilidad":"cards.ghost.weakness.demon",
+            "pista": [
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-demo",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"4-5-7",
+            "tipo":"cards.ghost.type.yurei",
+            "fortaleza":"cards.ghost.fortress.yurei",
+            "debilidad":"cards.ghost.weakness.yurei",
+            "pista": [
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-yure",
+            "patch": "2"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-5-7",
+            "tipo":"cards.ghost.type.oni",
+            "fortaleza":"cards.ghost.fortress.oni",
+            "debilidad":"cards.ghost.weakness.oni",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-oni",
+            "patch": "3"
+         },
+         {
+            "isActive":true,
+            "pistaId":"3-4-5",
+            "tipo":"cards.ghost.type.hantu",
+            "fortaleza":"cards.ghost.fortress.hantu",
+            "debilidad":"cards.ghost.weakness.hantu",
+            "pista": [
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-hant",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"6-4-7",
+            "tipo":"cards.ghost.type.yokai",
+            "fortaleza":"cards.ghost.fortress.yokai",
+            "debilidad":"cards.ghost.weakness.yokai",
+            "pista": [
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-yoka",
+            "patch": "2"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-3-7",
+            "tipo":"cards.ghost.type.goryo",
+            "fortaleza":"cards.ghost.fortress.goryo",
+            "debilidad":"cards.ghost.weakness.goryo",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-gory",
+            "patch": "3"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-3-2",
+            "tipo":"cards.ghost.type.myling",
+            "fortaleza":"cards.ghost.fortress.myling",
+            "debilidad":"cards.ghost.weakness.myling",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostWriting",
+                  "class": "write"
+               }
+            ],
+            "img": "f-myli",
+            "patch": "1"
+         }
+      ]
+   },
+   "instrumentData": [
+      {
+         "title":"Incienso",
+         "img":"h-inci",
+         "desc":"Este objeto siempre ha sido la manera más eficiente de debilitar a los fantasmas más comunes. Su método de empleo es sencillo: sujétalo y quémalo cerca del fantasma.",
+         "patch":"1"
+      },
+      {
+         "title":"Escritura fantasma",
+         "img":"h-escr",
+         "desc":"Los investigadores de lo paranormal empezaron a usar papel y lápiz como método comunicativo alternativo a la Spirit Box. Más tarde se descubrió que sólo ciertos tipos de fantasma están dispuestos a escribir.",
+         "patch":"2"
+      },
+      {
+         "title":"Ouija",
+         "img":"h-ouij",
+         "desc":"La manera más común de invocar a un fantasma es con uno de estos tableros, por lo que quizá te encuentres con uno de estos durante tus investigaciones. Ten cuidado si le das uso, pues se sabe que tienden a bajar tu cordura. Para utilizar la güija, actívala y entonces realiza preguntas usando tu voz.",
+         "patch":"3"
+      }
+   ],
+   "evidenceData": [
+      {
+         "title":"evidences.title.emf",
+         "img":"p-emf5",
+         "desc":"evidences.desc.emf",
+         "patch":"1"
+      },
+      {
+         "title":"evidences.title.spiritBox",
+         "img":"p-spir",
+         "desc":"evidences.desc.spiritBox",
+         "patch":"2"
+      },
+      {
+         "title":"evidences.title.freezingTemperatures",
+         "img":"p-temp",
+         "desc":"evidences.desc.freezingTemperatures",
+         "patch":"3"
+      },
+      {
+         "title":"evidences.title.fingerprints",
+         "img":"p-huel",
+         "desc":"evidences.desc.fingerprints",
+         "patch":"1"
+      },
+      {
+         "title":"evidences.title.ghostOrb",
+         "img":"p-orbe",
+         "desc":"evidences.desc.ghostOrb",
+         "patch":"2"
+      },
+      {
+         "title":"evidences.title.ghostWriting",
+         "img":"p-escr",
+         "desc":"evidences.desc.ghostWriting",
+         "patch":"3"
+      },
+      {
+         "title":"evidences.title.dots",
+         "img":"p-dots",
+         "desc":"evidences.desc.dots",
+         "patch":"1"
+      }
+   ],
+   "pagesData": [
+      {
+         "title":"www.kineticgames.co.uk/",
+         "img":"w-kine",
+         "url":"https://kineticgames.co.uk/"
+      },
+      {
+         "title":"Steam",
+         "img":"w-stea",
+         "url":"https://store.steampowered.com/app/739630/Phasmophobia/"
+      },
+      {
+         "title":"Fandom",
+         "img":"w-fand",
+         "url":"https://phasmophobia.fandom.com/wiki/Main_Page"
+      }
+   ]
+}

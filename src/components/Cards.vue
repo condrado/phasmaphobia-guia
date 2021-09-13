@@ -1,26 +1,29 @@
 <template>
   <div class="m-cards">
     <div class="m-cards__header">
-      <h2>Fantasmas</h2>
+      <h2>{{ $t('nameGhost') }}</h2>
       <div class="m-cards__list">
         <button v-on:click="changeFormatCard" v-if="isList"><i class='list'></i></button>
         <button v-on:click="changeFormatList" v-else><i class='large'></i></button>
       </div>
     </div>
+    
     <div class="blog row" v-bind:class="{ list: isList }">
       <template v-for="(item) in items">
         <div class="blog__card col-12 col-md-6 col-lg-4" :key=item.tipo v-if="item.isActive">
           <div class="blog__container" >
-            <h3 class="blog__title col-12 text-center">{{item.tipo}}</h3>
+            <h3 class="blog__title col-12 text-center">{{ $t(item.tipo) }}</h3>
             <div class="blog__figure col-4" :class="pistas">
               <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
-              <p class="paragraph text-center" v-html="item.pista"></p>
+                <p class="paragraph text-center">
+                  <i v-for="pista in item.pista" :key="pista.title" :data-title=$t(pista.title) :class=pista.class></i>
+                </p>
             </div>
             <div class="blog__body col-8">
-                <h4>Fortaleza</h4>
-                <p class="paragraph text-justify blog__desc-1">{{item.fortaleza}}</p>
-                <h4>Debilidad</h4>
-                <p class="paragraph text-justify blog__desc-2">{{item.debilidad}}</p>
+              <h4>{{ $t('cards.fortress')}}</h4>
+              <p class="paragraph text-justify blog__desc-1">{{ $t(item.fortaleza) }}</p>
+              <h4>{{ $t('cards.weakness')}}</h4>
+              <p class="paragraph text-justify blog__desc-2">{{ $t(item.debilidad) }}</p>
             </div>
           </div>
         </div>
@@ -30,6 +33,8 @@
 </template>
 
 <script>
+import jsonData from '../data/data.json'
+
 export default {
   name: 'Cards',
   props: {
@@ -38,9 +43,9 @@ export default {
   },
   data() {
     return {
-      fields: this.tableData.fields,
       items: this.tableData.items,
-      isList: false
+      isList: false,
+      nameGhost: jsonData.tableData.nameGhost
     }
   },
   methods: {
@@ -124,7 +129,7 @@ export default {
 
     h3 {
       margin-bottom: 20px;
-      max-height: 32px;
+      padding-bottom: 6px;
     }
 
     img {
@@ -137,21 +142,23 @@ export default {
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
-    padding: 15px;
+    padding: 7px 15px 15px 15px;
     height: 100%;
     align-content: flex-start;
-
   }
 
   &__title {
     width: 100%;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   &__body {
     padding-left: 15px;
 
     p {
+      line-height: 16px;
+      opacity: 0.7;
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -167,6 +174,9 @@ export default {
       font-size: 20px;
 
       i {
+        width: 23px;
+        margin: 0 6px;
+
         &:first-child {
           &:hover {
             &::after {
@@ -236,12 +246,14 @@ export default {
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
+        padding: 15px 8px 15px 15px;
       }
 
       &__title {
         width: auto;
         margin: 0;
         border-bottom: 0;
+        padding: 0;
       }
 
       &__figure {
@@ -265,7 +277,7 @@ export default {
           margin: 0;
 
           i {
-            width: 23px;
+            margin: 0 8px;
 
             &::after {
               left: auto;
@@ -313,8 +325,8 @@ export default {
       opacity: .2;
     }
   }
-  .spititbox {
-    .spititbox {
+  .spiritbox {
+    .spiritbox {
       opacity: .2;
     }
   }

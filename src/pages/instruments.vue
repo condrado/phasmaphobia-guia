@@ -1,6 +1,6 @@
 <template>
     <div class="container-md">
-        <h1 class="app-title">Instrumentos</h1>
+        <h1 class="app-title">{{ $t('toolsTitle') }}</h1>
         <dir class="m-content">
             <template v-for="(instrument) in instrumentData">
                 <article class="m-article" :key=instrument.title>
@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import jsonEs from '../data/data-es.json'
+import jsonData from '../data/data.json'
 
 export default {
   name: 'Instruments',
   components: {},
   data() {
     return {
-        instrumentData: jsonEs.instrumentData,
+        instrumentData: jsonData.instrumentData,
     }
   },
   methods: {}
@@ -45,11 +45,13 @@ export default {
 
         &__p {
             display: flex;
-             margin: 0 0 32px 0;
+            margin: 0 0 32px 0;
+            line-height: 20px;
 
-             span {
-                 margin: 0 0 0 16px;
-             }
+            span {
+                margin: 0 0 0 16px;
+                opacity: 0.7;   
+            }
         }
 
         &__img {

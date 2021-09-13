@@ -13,6 +13,7 @@
       :textSelected="textSelected"
       :activeBtn="activeBtn"
       :pistas="pistas"
+      :tableData="tableData"
       @newGame="newGame"
       @addName="addName"
       @newTime="newTime"
@@ -25,7 +26,7 @@
 
 <script>
 import Menu from './components/Menu.vue'
-import jsonEs from './data/data-es.json'
+import jsonData from './data/data.json'
 
 export default {
   name: 'App',
@@ -41,12 +42,13 @@ export default {
       isSelectedTime: false,
       names: [],
       isFirstName: true,
-      tableData: jsonEs.tableData,
-      formData: jsonEs.formData,
+      tableData: jsonData.tableData,
+      formData: jsonData.formData,
       tracksSelected: 0,
       tracksId: [],
-      textSelected: '- Seleccione una prueba -',
+      textSelected: '',
       pistas: '',
+      btnActives: [],
       isHideBtn: {
         isHideBtn1: false,
         isHideBtn2: false,
@@ -146,6 +148,7 @@ export default {
       let textSelectedAct = this.textSelected
       let tracksSelectedAct = this.tracksSelected
       let textAct = event.currentTarget.nextElementSibling.textContent
+      // let classIcon = event.currentTargeta.firstElementChild.getAttribute('class')
       let isEnd = true
 
       if (classBtn.indexOf('active') > -1) {
@@ -162,10 +165,19 @@ export default {
           
           switch (this.tracksSelected) {
             case 0:
-              this.textSelected = '- Seleccione una prueba -'
+              this.textSelected = ''
+              this.btnActives.pop()
               break;
             case 1:
               this.textSelected = tracksSelectedActArray.join('').replace(' • ','')
+              if (this.btnActives[0] === trackId) {
+                this.btnActives.shift() 
+              } else {
+                this.btnActives.pop()
+              }
+
+              this.activeBtn['activeBtn' + this.btnActives[0]] = 'active active1 end'
+
               break;
             case 2:
               if (!isEnd) {
@@ -173,18 +185,39 @@ export default {
               } else {
                 this.textSelected = tracksSelectedActArray.join('').substr(0, tracksSelectedActArray.join('').length - 3)
               }
+
+              if (this.btnActives[0] === trackId) {
+                this.btnActives.shift() 
+              } else if (this.btnActives[this.btnActives.length - 1] === trackId) {
+                this.btnActives.pop()
+              } else {
+                this.btnActives.splice(1, 1);
+              }
+
+              this.activeBtn['activeBtn' + this.btnActives[0]] = 'active active1'
+              this.activeBtn['activeBtn' + this.btnActives[1]] = 'active active2 end'
+
               break;
             default:
               this.textSelected = tracksSelectedActArray.join('')
               break;
           }
 
+          console.log(this.btnActives)
+
           var indice = this.tracksId.indexOf(trackId)
           this.tracksId.splice(indice, 1)
         }
       } else {
         if (tracksSelectedAct < 3) {
-          this.activeBtn['activeBtn' + trackId] = ' active'
+          this.btnActives.push(trackId)
+          this.btnActives.forEach(btn => { 
+            if (btn !== trackId)  {
+              this.activeBtn['activeBtn' + btn] =  this.activeBtn['activeBtn' + btn].replace(' end', '')
+            } 
+          })
+
+          this.activeBtn['activeBtn' + trackId] = 'active active' + (tracksSelectedAct + 1) + ' end'
           this.tracksSelected =  tracksSelectedAct + 1
 
           if (this.tracksSelected === 1) {
@@ -213,6 +246,11 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 
 @font-face {
   font-family: 'Standard Icons';
@@ -234,7 +272,11 @@ i {
 
   &:hover {
     &::after {
-      font-family: 'Cutive Mono', monospace;
+      // font-family: 'Cutive Mono', monospace;
+      // font-family: 'Nanum Pen Script', cursive;
+      // font-family: 'Annie Use Your Telescope', cursive;
+      // font-family: 'Sue Ellen Francisco', cursive;
+      font-family: 'Walter Turncoat', arial, monospace;
       color: #fff;
       content: attr(data-title);
       position: absolute;
@@ -275,7 +317,7 @@ i {
       content: '\F2CB';
     }
   }
-  &.spititbox {
+  &.spiritbox {
     &::before {
       content: '\e802';
     }
@@ -325,10 +367,24 @@ i {
       content: '\E800';
     }
   }
+  &.down {
+    &::before {
+      content: '\E808';
+    }
+  }
+  &.up {
+    &::before {
+      content: '\E809';
+    }
+  }
 }
 
 #app {
-  font-family: 'Cutive Mono', monospace;
+  // font-family: 'Cutive Mono', monospace;
+  // font-family: 'Nanum Pen Script', cursive;
+  // font-family: 'Annie Use Your Telescope', cursive;
+  // font-family: 'Sue Ellen Francisco', cursive;
+  font-family: 'Walter Turncoat', cursive;
   color: #fff;
   position: relative;
 }
