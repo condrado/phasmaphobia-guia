@@ -420,6 +420,7 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 32px;
 }
 
 h2 {
@@ -454,6 +455,7 @@ h3 {
   background-image: url('assets/images/bg-page.jpg');
   width: 100%;
   z-index: 2;
+  font-size: 32px;
 
   @media (min-width: 768px) {
     position: static;

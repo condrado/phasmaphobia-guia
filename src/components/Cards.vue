@@ -21,9 +21,9 @@
             </div>
             <div class="blog__body col-8">
               <h4>{{ $t('cards.fortress')}}</h4>
-              <p class="paragraph text-justify blog__desc-1">{{ $t(item.fortaleza) }}</p>
+              <p class="paragraph blog__desc-1">{{ $t(item.fortaleza) }}</p>
               <h4>{{ $t('cards.weakness')}}</h4>
-              <p class="paragraph text-justify blog__desc-2">{{ $t(item.debilidad) }}</p>
+              <p class="paragraph blog__desc-2">{{ $t(item.debilidad) }}</p>
             </div>
           </div>
         </div>
@@ -169,9 +169,14 @@ export default {
     margin-bottom: 0; 
     position: relative;
 
+    &.col-4 {
+      padding: 0;
+    }
+
     p {
       margin: 16px 0 0;
       font-size: 20px;
+      display: flex;
 
       i {
         width: 23px;
@@ -254,12 +259,16 @@ export default {
         margin: 0;
         border-bottom: 0;
         padding: 0;
+        max-width: none;
+        flex: none;
       }
 
       &__figure {
         width: auto;
         display: flex;
         align-items: center;
+        max-width: none;
+        padding: 0;
 
         &.patch1,
         &.patch2,
@@ -275,6 +284,7 @@ export default {
 
         .paragraph {
           margin: 0;
+          display: flex;
 
           i {
             margin: 0 8px;

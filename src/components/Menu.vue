@@ -23,14 +23,14 @@
         <li>
           <router-link class="link" :to="{path: urlWebsRelacionadas}">{{ $t('websTitle') }}</router-link>
         </li>
-        <!-- <li>
+        <li>
           <button class="m-menu__drop" type="button" @click="dropLanguaje">{{ $t('languajeTitle') }}</button>
           <div class="m-menu__list" v-if="isOpenlanguaje">
             <button class="m-menu__item" v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
               <flag :iso="entry.flag" v-bind:squared="false" /> {{entry.title}}
             </button>
           </div>
-        </li> -->
+        </li>
       </ul>
 
       <span class="version">0.11.2</span>
@@ -123,11 +123,17 @@ export default {
 
     &.show {
       display: block;
+      opacity: 1;
     }
 
     i {
       vertical-align: middle;
       width: 26px;
+      color: #fff;
+      text-shadow: none;
+      opacity: 1;
+      font-size: 26px;
+      float: none;
     }
   }
 
