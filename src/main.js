@@ -9,8 +9,9 @@ import i18n from '@/plugins/i18n'
 import FlagIcon from 'vue-flag-icon'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
+import './sass/app.scss'
 
 // Make BootstrapVue available throughout your project
 Vue.use(

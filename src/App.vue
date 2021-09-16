@@ -275,6 +275,7 @@ export default {
 // @import url('https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 
+
 @font-face {
   font-family: 'Standard Icons';
   src: url('assets/fonts/icons/fontello.eot?yub9z6');

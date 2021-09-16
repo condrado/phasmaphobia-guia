@@ -33,7 +33,7 @@
         </li> -->
       </ul>
 
-      <span class="version">0.11.1</span>
+      <span class="version">0.11.2</span>
     </div>
   </div>
 </template>

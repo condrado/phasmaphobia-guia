@@ -1,0 +1,9 @@
+$spacer: 1rem !default;
+
+$body-bg: #222;
+$body-color: #FFF;
+
+// Bootstrap and its default variables
+@import '../../node_modules/bootstrap/scss/bootstrap';
+// BootstrapVue and its default variables
+@import '../../node_modules/bootstrap-vue/src/index.scss';
