@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from 'vue-router'
 
 import Home from "./pages/home.vue";
-import Instruments from "./pages/instruments.vue";
+import Tools from "./pages/tools.vue";
 import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/nombre-fantasma.vue";
 import WebsRelacionadas from "./pages/webs-relacionadas.vue";
@@ -23,8 +23,8 @@ const routes = [
   },
   {
     path: vuePath + "instrumentos",
-    name: "instruments",
-    component: Instruments
+    name: "tools",
+    component: Tools
   },
   {
     path: vuePath + "reuniendo-pruebas",

@@ -2,9 +2,9 @@
     <div class="container-md">
         <h1 class="app-title">{{ $t('toolsTitle') }}</h1>
         <dir class="m-content">
-            <template v-for="(instrument) in instrumentData">
+            <template v-for="(instrument) in toolData">
                 <article class="m-article" :key=instrument.title>
-                    <h2>{{instrument.title}}</h2>
+                    <h2>{{ $t(instrument.title) }}</h2>
                     <div class="m-content__p">
                         <figure v-bind:class="{patch1: instrument.patch == 1, patch2: instrument.patch == 2, patch3: instrument.patch == 3}">
                             <img class="m-content__img" :src="require(`../assets/images/${instrument.img}.jpg`)" alt="f"/>
@@ -21,11 +21,11 @@
 import jsonData from '../data/data.json'
 
 export default {
-  name: 'Instruments',
+  name: 'Tools',
   components: {},
   data() {
     return {
-        instrumentData: jsonData.instrumentData,
+        toolData: jsonData.toolData,
     }
   },
   methods: {}

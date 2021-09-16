@@ -33,6 +33,13 @@ const messages = {
                 dots: 'A laser grid of light that can reveal the silhouette of a ghost.',
             }
         },
+        tools: {
+            title: {
+                ghostWriting: 'Ghost writing Book',
+                ouija: 'Ouija Board',
+                mudgeSticks: 'Smudge Sticks',
+            }
+        },
         cards: {
             fortress: 'Unique Strengths',
             weakness: 'Weaknesses',
@@ -100,7 +107,7 @@ const messages = {
     'es': {
         homeTitle: 'Libro de registro',
         evidenceTitle: 'Reuniendo pruebas',
-        toolsTitle: 'Instrumentos',
+        toolsTitle: 'Herramientas',
         nameGhostTitle: 'Nombre fantasmas',
         websTitle: 'Webs relacionadas',
         languajeTitle: 'Idioma',
@@ -124,6 +131,13 @@ const messages = {
                 freezingTemperatures: 'Todos los fantasmas hacen que una estancia esté fría, pero algunos de ellos pueden hacer que las temperaturas desciendan más de lo normal.',
                 spiritBox: 'Solo algunos fantasmas hablarán a través de una Spirit Box cuando les realices preguntas con tu voz. Asegúrate de que las luces están apagadas antes de usarlo.',
                 dots: 'Una red láser proyectada que puede revelar, la silueta de un fantasma.',
+            }
+        },
+        tools: {
+            title: {
+                ghostWriting: 'Escritura fantasma',
+                ouija: 'Ouija',
+                mudgeSticks: 'Incienso'
             }
         },
         cards: {
