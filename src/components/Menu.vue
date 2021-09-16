@@ -8,22 +8,22 @@
     </button>
     <div class="m-menu__container" v-bind:class="{ show: isOpen }">
       <ul v-on:click="closeMenu">
-        <li>
+        <li v-if="menuList.home">
           <router-link class="link" :to="{path: urlHome}" >{{ $t('homeTitle') }}</router-link>
         </li>
-        <li>
+        <li v-if="menuList.tools">
           <router-link class="link" :to="{path: urlInstrumentos}">{{ $t('toolsTitle') }}</router-link>
         </li>
-        <li>
+        <li v-if="menuList.evidences">
           <router-link class="link" :to="{path: urlReuniendoPruebas}">{{ $t('evidenceTitle') }}</router-link>
         </li>
-        <li>
+         <li v-if="menuList.name">
           <router-link class="link" :to="{path: urlNombreFantasma}">{{ $t('nameGhostTitle') }}</router-link>
         </li>
-        <li>
+        <li v-if="menuList.webs">
           <router-link class="link" :to="{path: urlWebsRelacionadas}">{{ $t('websTitle') }}</router-link>
         </li>
-        <li>
+        <li v-if="menuList.languaje">
           <button class="m-menu__drop" type="button" @click="dropLanguaje">{{ $t('languajeTitle') }}</button>
           <div class="m-menu__list" v-if="isOpenlanguaje">
             <button class="m-menu__item" v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
@@ -47,7 +47,7 @@ const path = '/'
 export default {
   name: 'Menu',
   props: {
-    tableData: Object
+    menuList: Object
   },
   data() {
     return {

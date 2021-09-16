@@ -27,7 +27,6 @@ export default {
   components: {},
   data() {
     return {
-        // instrumentData: []
         pagesData: jsonData.pagesData,
     }
   },

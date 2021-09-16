@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <InitMove v-if="isInitMove" :activeInitMove="activeInitMove" :activeInitMoveImg="activeInitMoveImg"/>
-    <Menu />
+    <Menu :menuList="menuList"/>
     <router-view 
       :isNameInput="isNameInput"
       :isNewGame="isNewGame"
@@ -50,6 +50,7 @@ export default {
       isFirstName: true,
       tableData: jsonData.tableData,
       formData: jsonData.formData,
+      menuList: jsonData.menu,
       tracksSelected: 0,
       tracksId: [],
       textSelected: '',

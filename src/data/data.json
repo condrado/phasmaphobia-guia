@@ -1,4 +1,12 @@
 {
+   "menu": {
+      "home": true,
+      "tools": true,
+      "evidences": true,
+      "name": false,
+      "webs": true,
+      "languaje": false
+   },
    "formData":{
       "options":[
          {
@@ -429,21 +437,21 @@
          }
       ]
    },
-   "instrumentData": [
+   "toolData": [
       {
-         "title":"Incienso",
+         "title":"tools.title.mudgeSticks",
          "img":"h-inci",
          "desc":"Este objeto siempre ha sido la manera más eficiente de debilitar a los fantasmas más comunes. Su método de empleo es sencillo: sujétalo y quémalo cerca del fantasma.",
          "patch":"1"
       },
       {
-         "title":"Escritura fantasma",
+         "title":"tools.title.ghostWriting",
          "img":"h-escr",
          "desc":"Los investigadores de lo paranormal empezaron a usar papel y lápiz como método comunicativo alternativo a la Spirit Box. Más tarde se descubrió que sólo ciertos tipos de fantasma están dispuestos a escribir.",
          "patch":"2"
       },
       {
-         "title":"Ouija",
+         "title":"tools.title.ouija",
          "img":"h-ouij",
          "desc":"La manera más común de invocar a un fantasma es con uno de estos tableros, por lo que quizá te encuentres con uno de estos durante tus investigaciones. Ten cuidado si le das uso, pues se sabe que tienden a bajar tu cordura. Para utilizar la güija, actívala y entonces realiza preguntas usando tu voz.",
          "patch":"3"
