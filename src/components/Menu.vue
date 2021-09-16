@@ -33,7 +33,7 @@
         </li>
       </ul>
 
-      <span class="version">0.11.3</span>
+      <span class="version">0.11.4</span>
     </div>
   </div>
 </template>
@@ -73,16 +73,20 @@ export default {
     },
     closeMenu (event) {
       if (event !== null) {
-        const elemSelected = event.target
+        let elemSelected = event
 
-        if(elemSelected.getAttribute('class') !== null && elemSelected.getAttribute('class').indexOf('__drop') < 0) {
+        if (event !== 'out') {
+          elemSelected = event.target
+        } 
+
+        if(elemSelected === 'out' || elemSelected.getAttribute('class') !== null && elemSelected.getAttribute('class').indexOf('__drop') < 0) {
           this.isOpen = false
           this.isClose = true
         }
       }
     },
     handleFocusOut () {
-      this.closeMenu(null)
+      this.closeMenu('out')
     },
     changeLocale(locale) {
       i18n.locale = locale;
