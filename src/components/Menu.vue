@@ -73,7 +73,7 @@
     </div>
     <div class="m-menu__btn-version" v-bind:class="{ show: isOpen }">
       <button type="button" @click="refreshPage()">
-          <span class="version">0.11.7</span>
+          <span class="version">0.11.8</span>
       </button>
     </div>
   </div>
@@ -331,6 +331,10 @@ export default {
     width: 100%;
     display: flex;
     line-height: 17px;
+
+    .flag-icon {
+      margin-right: 8px;
+    }
 
     i {
       min-width: 24px;
