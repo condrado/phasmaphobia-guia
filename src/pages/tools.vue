@@ -6,7 +6,7 @@
                 <article class="m-article" :key=instrument.title>
                     <h2>{{ $t(instrument.title) }}</h2>
                     <div class="m-content__p">
-                        <figure v-bind:class="{patch1: instrument.patch == 1, patch2: instrument.patch == 2, patch3: instrument.patch == 3}">
+                        <figure :class="'patch' + instrument.patch">
                             <img class="m-content__img" :src="require(`../assets/images/${instrument.img}.jpg`)" alt="f"/>
                         </figure>
                         <span>{{instrument.desc}}</span>
@@ -55,18 +55,99 @@ export default {
         }
 
         &__img {
-            width: 125px;
+                width: 138px;
             height: auto;
+            position: absolute;
+            z-index: 1;
         }
 
         h2 {
             border-bottom: 1px dashed #808080;
+            font-size: 28px;
         }
     }
 
     .m-article {
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             width: 48%;
+        }
+
+        .patch1,
+        .patch2,
+        .patch3,
+        .patch4,
+        .patch5 {
+            position: relative;
+            min-width: 210px;
+            
+            &:before {
+                content: "";
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: 1;
+                display: block;
+                position: absolute;
+                background-size: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-position: center top;
+            }
+        }
+
+        .patch1 {
+            min-height: 262px;
+
+            &:before {
+                background-image: url('../assets/images/patch-1b.png');
+            }
+
+            img {
+                left: 39px;
+                top: 44px;
+            }
+        }
+
+        .patch2 {
+            min-height: 252px;
+
+            &:before {
+                background-image: url('../assets/images/patch-2b.png');
+            }
+
+            img {
+                left: 31px;
+                top: 37px;
+            }
+        }
+
+        .patch3 {
+            min-height: 255px;
+
+            &:before {
+                background-image: url('../assets/images/patch-3b.png');
+            }
+
+            img {
+                left: 30px;
+                top: 30px;
+            }
+        }
+
+        .patch4 {
+            min-height: 205px;
+            
+            &:before {
+                background-image: url('../assets/images/patch-4b.png');
+            }
+        }
+
+        .patch5 {
+            min-height: 215px;
+            
+            &:before {
+                background-image: url('../assets/images/patch-5b.png');
+            }
         }
     }
 </style>

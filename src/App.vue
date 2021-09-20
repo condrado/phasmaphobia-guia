@@ -426,10 +426,12 @@ h1 {
 
 h2 {
   text-align: left;
+  font-size: 28px;
 }
 
 h3 {
   border-bottom: 1px dashed #808080;
+  font-size: 24px;
 }
 
 .link,

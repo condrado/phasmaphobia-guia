@@ -157,7 +157,7 @@
                }
             ],
             "img": "f-polt",
-            "patch": "1"
+            "patch": "4"
          },
          {
             "isActive":true,
@@ -180,7 +180,7 @@
                }
             ],
             "img": "f-bans",
-            "patch": "2"
+            "patch": "5"
          },
          {
             "isActive":true,
@@ -203,7 +203,7 @@
                }
             ],
             "img": "f-jinn",
-            "patch": "3"
+            "patch": "1"
          },
          {
             "isActive":true,
@@ -226,7 +226,7 @@
                }
             ],
             "img": "f-pesa",
-            "patch": "1"
+            "patch": "2"
          },
          {
             "isActive":true,
@@ -249,7 +249,7 @@
                }
             ],
             "img": "f-reve",
-            "patch": "2"
+            "patch": "3"
          },
          {
             "isActive":true,
@@ -272,7 +272,7 @@
                }
             ],
             "img": "f-somb",
-            "patch": "3"
+            "patch": "4"
          },
          {
             "isActive":true,
@@ -295,7 +295,7 @@
                }
             ],
             "img": "f-demo",
-            "patch": "1"
+            "patch": "5"
          },
          {
             "isActive":true,
@@ -318,7 +318,7 @@
                }
             ],
             "img": "f-yure",
-            "patch": "2"
+            "patch": "1"
          },
          {
             "isActive":true,
@@ -341,7 +341,7 @@
                }
             ],
             "img": "f-oni",
-            "patch": "3"
+            "patch": "2"
          },
          {
             "isActive":true,
@@ -364,7 +364,7 @@
                }
             ],
             "img": "f-hant",
-            "patch": "1"
+            "patch": "3"
          },
          {
             "isActive":true,
@@ -387,7 +387,7 @@
                }
             ],
             "img": "f-yoka",
-            "patch": "2"
+            "patch": "4"
          },
          {
             "isActive":true,
@@ -410,7 +410,7 @@
                }
             ],
             "img": "f-gory",
-            "patch": "3"
+            "patch": "5"
          },
          {
             "isActive":true,
@@ -503,19 +503,22 @@
    ],
    "pagesData": [
       {
-         "title":"www.kineticgames.co.uk/",
+         "title":"Kinetic games",
          "img":"w-kine",
-         "url":"https://kineticgames.co.uk/"
+         "url":"https://kineticgames.co.uk/",
+         "patch":"1"
       },
       {
          "title":"Steam",
          "img":"w-stea",
-         "url":"https://store.steampowered.com/app/739630/Phasmophobia/"
+         "url":"https://store.steampowered.com/app/739630/Phasmophobia/",
+         "patch":"2"
       },
       {
          "title":"Fandom",
          "img":"w-fand",
-         "url":"https://phasmophobia.fandom.com/wiki/Main_Page"
+         "url":"https://phasmophobia.fandom.com/wiki/Main_Page",
+         "patch":"3"
       }
    ]
 }

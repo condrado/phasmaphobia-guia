@@ -10,16 +10,18 @@
     
     <div class="blog row" v-bind:class="{ list: isList }">
       <template v-for="(item) in items">
-        <div class="blog__card col-12 col-md-6 col-lg-4" :key=item.tipo v-if="item.isActive">
+        <div class="blog__card col-12 col-lg-6 " :key=item.tipo v-if="item.isActive">
           <div class="blog__container" >
             <h3 class="blog__title col-12 text-center">{{ $t(item.tipo) }}</h3>
-            <div class="blog__figure col-4" :class="pistas">
-              <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
+            <div class="blog__figure col-5" :class="pistas">
+              <figure :class="'patch' + item.patch + 'b'">
+                <img :src="require(`../assets/images/${item.img}.jpg`)" alt="f">
+              </figure>
               <p class="paragraph text-center">
                 <i v-for="pista in item.pista" :key="pista.title" :data-title=$t(pista.title) :class=pista.class></i>
               </p>
             </div>
-            <div class="blog__body col-8">
+            <div class="blog__body col-7">
               <h4>{{ $t('cards.fortress')}}</h4>
               <p class="paragraph blog__desc-1">{{ $t(item.fortaleza) }}</p>
               <h4>{{ $t('cards.weakness')}}</h4>
@@ -130,6 +132,7 @@ export default {
     h3 {
       margin-bottom: 20px;
       padding-bottom: 6px;
+      font-size: 24px;
     }
 
     img {
@@ -140,11 +143,15 @@ export default {
   &__container {
     border: 1px dashed #808080;
     border-radius: 5px;
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     padding: 7px 15px 15px 15px;
     height: 100%;
     align-content: flex-start;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
   }
 
   &__title {
@@ -166,17 +173,32 @@ export default {
   }
 
   &__figure {
-    margin-bottom: 0; 
-    position: relative;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+
+    &[class*='col-'] {
+      display: block;
+      max-width: 300px;
+      padding: 0;
+      margin: 0 auto;
+      text-align: center;
+
+      ~ .blog__body {
+        max-width: 100%;
+      }
+    }
 
     &.col-4 {
       padding: 0;
     }
 
     p {
-      margin: 16px 0 0;
+      margin: 55px 0 0;
       font-size: 20px;
       display: flex;
+      justify-content: center;
 
       i {
         width: 23px;
@@ -223,6 +245,176 @@ export default {
     &.patch3 {
       &:before {
         background-image: url('../assets/images/patch3.png');
+      }
+    }
+
+    .patch1b,
+    .patch2b,
+    .patch3b,
+    .patch4b,
+    .patch5b {
+
+      &:before {
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        display: block;
+        position: absolute;
+        background-size: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 211px;
+        background-position: center top;
+      }
+
+      img {
+        position: absolute;
+        z-index: 1;
+        width: 137px;
+      }
+    }
+
+    .patch1b {
+      min-height: 220px;
+
+      &:before {
+        background-image: url('../assets/images/patch-1b.png');
+      }
+
+      img {
+        left: 84px;
+        top: 45px;
+
+        @media (min-width: 768px) {
+          left: 72px;
+          top: 45px;
+        }
+
+        @media (min-width: 992px) {
+          left: 21px;
+          top: 45px;
+        }
+
+        @media (min-width: 1200px) {
+          left: 40px;
+          top: 45px;
+        }
+      }
+    }
+
+    .patch2b {
+      min-height: 210px;
+
+      &:before {
+        background-image: url('../assets/images/patch-2b.png');
+      }
+
+      img {
+        left: 76px;
+        top: 38px;
+
+        @media (min-width: 768px) {
+          left: 63px;
+          top: 38px;
+        }
+
+        @media (min-width: 992px) {
+          left: 13px;
+          top: 38px;
+        }
+
+        @media (min-width: 1200px) {
+          left: 31px;
+          top: 38px;
+        }
+      }
+
+
+    }
+
+    .patch3b {
+      min-height: 215px;
+
+      &:before {
+        background-image: url('../assets/images/patch-3b.png');
+      }
+
+      img {
+        left: 76px;
+        top: 32px;
+
+        @media (min-width: 768px) {
+          left: 63px;
+          top: 31px;
+        }
+
+        @media (min-width: 992px) {
+          left: 12px;
+          top: 32px;
+        }
+
+        @media (min-width: 1200px) {
+          left: 31px;
+          top: 32px;
+        }
+      }
+    }
+
+    .patch4b {
+      min-height: 205px;
+
+      &:before {
+        background-image: url('../assets/images/patch-4b.png');
+      }
+
+      img {
+        left: 85px;
+        top: 29px;
+
+        @media (min-width: 768px) {
+          left: 73px;
+          top: 29px;
+        }
+
+        @media (min-width: 992px) {
+          left: 23px;
+          top: 29px;
+        }
+
+        @media (min-width: 1200px) {
+          left: 41px;
+          top: 29px;
+        }
+      }
+    }
+
+    .patch5b {
+      min-height: 215px;
+
+      &:before {
+        background-image: url('../assets/images/patch-5b.png');
+      }
+
+      img {
+        left: 85px;
+        top: 37px;
+
+        @media (min-width: 768px) {
+          left: 73px;
+          top: 37px;
+        }
+
+        @media (min-width: 992px) {
+          left: 22px;
+          top: 37px;
+        }
+
+        @media (min-width: 1200px) {
+          left: 41px;
+          top: 37px;
+        }
       }
     }
   }
