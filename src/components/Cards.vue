@@ -444,6 +444,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 15px 8px 15px 15px;
+        display: flex;
       }
 
       &__title {
@@ -461,12 +462,14 @@ export default {
         align-items: center;
         max-width: none;
         padding: 0;
+        margin: 0;
+        flex: 0 0;
 
-        &.patch1,
-        &.patch2,
-        &.patch3 {
+        figure {
+          min-height: auto;
+
           &::before {
-            display: none;;
+            display: none;
           }
         }
 
