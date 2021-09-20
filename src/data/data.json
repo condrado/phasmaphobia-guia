@@ -5,7 +5,174 @@
       "evidences": true,
       "name": false,
       "webs": true,
-      "languaje": false
+      "language": true,
+      "equipment": true,
+      "equipmentVan": true,
+      "equipmentOnSite": true,
+      "equipmentExtra": true
+   },
+   "languages": [
+      {
+         "flag": "us",
+         "language": "en",
+         "title": "English"
+      },
+      {
+         "flag": "es",
+         "language": "es",
+         "title": "Español"
+      }
+    ],
+   "equipment": {
+      "starter": {
+         "name": "tools.types.starter",
+         "list": [
+            {
+               "title": "evidences.title.spiritBox",
+               "iconClass":"spiritbox"
+            },
+            {
+               "title": "evidences.title.ghostWriting",
+               "iconClass":"write"
+            },
+            {
+               "title": "evidences.title.photoCamera",
+               "iconClass":"camPhoto"
+            },
+            {
+               "title": "evidences.title.emf",
+               "iconClass":"emf"
+            },
+            {
+               "title": "evidences.title.videoCamera",
+               "iconClass":"camVideo"
+            },
+            {
+               "title": "evidences.title.flashlightUV",
+               "iconClass":"flashlightUV"
+            },
+            {
+               "title": "evidences.title.flashlight",
+               "iconClass":"flashlight"
+            },
+            {
+               "title": "evidences.title.dots",
+               "iconClass":"proyector"
+            }
+         ]
+      },
+      "van": {
+         "name": "tools.types.van",
+         "list": [
+            {
+               "title": "evidences.title.key",
+               "iconClass":"key"
+            },
+            {
+               "title": "evidences.title.objectiveBoard",
+               "iconClass":"board"
+            },
+            {
+               "title": "evidences.title.siteMap",
+               "iconClass":"map"
+            },
+            {
+               "title": "evidences.title.sanityMonitor",
+               "iconClass":"sanity"
+            },
+            {
+               "title": "evidences.title.siteActivityMonitor",
+               "iconClass":"move"
+            },
+            {
+               "title": "evidences.title.soundMonitor",
+               "iconClass":"sound"
+            },
+            {
+               "title": "evidences.title.cameraSystem",
+               "iconClass":"monitor"
+            }
+         ]
+      },
+      "onSite": {
+         "name": "tools.types.onsite",
+         "list": [
+            {
+               "title": "evidences.title.ouija",
+               "iconClass":"ouija"
+            },
+            {
+               "title": "evidences.title.voodoo",
+               "iconClass":"voodoo"
+            },
+            {
+               "title": "evidences.title.bone",
+               "iconClass":"bone"
+            }
+         ]
+      },
+      "extra": {
+         "name": "tools.types.extra",
+         "list": [
+            {
+               "title": "evidences.title.candle",
+               "iconClass":"candle"
+            },
+            {
+               "title": "evidences.title.crucifix",
+               "iconClass":"crucifix"
+            },
+            {
+               "title": "evidences.title.glowStick",
+               "iconClass":"glowStick"
+            },
+            {
+               "title": "evidences.title.headMountedCamera",
+               "iconClass":"headMountedCamera"
+            },
+            {
+               "title": "evidences.title.lighter",
+               "iconClass":"lighter"
+            },
+            {
+               "title": "evidences.title.motionSensor",
+               "iconClass":"motionSensor"
+            },
+            {
+               "title": "evidences.title.parabolicMicrophone",
+               "iconClass":"parabolicMicrophone"
+            },
+            {
+               "title": "evidences.title.saltShaker",
+               "iconClass":"saltShaker"
+            },
+            {
+               "title": "evidences.title.sanityPills",
+               "iconClass":"sanityPills"
+            },
+            {
+               "title": "evidences.title.smudgeSticks",
+               "iconClass":"smudgeSticks"
+            },
+            {
+               "title": "evidences.title.soundSensor",
+               "iconClass":"soundSensor"
+            },
+            {
+               "title": "evidences.title.strongFlashlight",
+               "iconClass":"flashlight"
+            },
+            {
+               "title": "evidences.title.thermometer",
+               "iconClass":"thermometer"
+            },
+            {
+               "title": "evidences.title.tripod",
+               "iconClass":"tripod"
+            }
+         ]
+      }
+
    },
    "formData":{
       "options":[

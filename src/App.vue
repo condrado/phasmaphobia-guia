@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <InitMove v-if="isInitMove" :activeInitMove="activeInitMove" :activeInitMoveImg="activeInitMoveImg"/>
-    <Menu :menuList="menuList"/>
+    <Menu 
+      :languages="languages"
+      :menuList="menuList"
+      :equipment="equipment"
+    />
     <router-view 
       :isNameInput="isNameInput"
       :isNewGame="isNewGame"
@@ -51,6 +55,8 @@ export default {
       tableData: jsonData.tableData,
       formData: jsonData.formData,
       menuList: jsonData.menu,
+      languages: jsonData.languages,
+      equipment: jsonData.equipment,
       tracksSelected: 0,
       tracksId: [],
       textSelected: '',
@@ -324,7 +330,7 @@ i {
   }
   &.write {
     &::before {
-      content: '\E801';
+      content: '\E802';
     }
   }
   &.handprint {
@@ -344,7 +350,7 @@ i {
   }
   &.spiritbox {
     &::before {
-      content: '\e802';
+      content: '\e803';
     }
   }
   &.proyector {
@@ -354,27 +360,27 @@ i {
   }
   &.large {
     &::before {
-      content: '\E803';
+      content: '\E804';
     }
   }
   &.list {
     &::before {
-      content: '\E804';
+      content: '\E805';
     }
   }
   &.menu {
     &::before {
-      content: '\E805';
+      content: '\E806';
     }
   }
   &.close {
     &::before {
-      content: '\E806';
+      content: '\E807';
     }
   }
   &.reset {
     &::before {
-      content: '\E807';
+      content: '\E808';
     }
   }
   &.add {
@@ -389,18 +395,161 @@ i {
   }
   &.time {
     &::before {
-      content: '\E800';
+      content: '\E801';
     }
   }
   &.down {
     &::before {
-      content: '\E808';
+      content: '\E80B';
     }
   }
   &.up {
     &::before {
+      content: '\E80C';
+    }
+  }
+  &.camPhoto {
+    &::before {
+      content: '\E80D';
+    }
+  }
+  &.camVideo {
+    &::before {
+      content: '\E80E';
+    }
+  }
+  &.flashlightUV {
+    &::before {
       content: '\E809';
     }
+  }
+  &.flashlight {
+    &::before {
+      content: '\E815';
+    }
+  }
+  &.key {
+    &::before {
+      content: '\E80A';
+    }
+  }
+  &.board {
+    &::before {
+      content: '\E81F';
+    }
+  }
+  &.map {
+    &::before {
+      content: '\E810';
+    }
+  }
+  &.sanity {
+    &::before {
+      content: '\E811';
+    }
+  }
+  &.move {
+    &::before {
+      content: '\E814';
+    }
+  }
+  &.sound {
+    &::before {
+      content: '\E800';
+    }
+  }
+  &.monitor {
+    &::before {
+      content: '\E813';
+    }
+  }
+  &.ouija {
+    &::before {
+      content: '\E81E';
+    }
+  }
+  &.bone {
+    &::before {
+      content: '\E81C';
+    }
+  }
+  &.voodoo {
+    &::before {
+      content: '\E81D';
+    }
+  }
+  &.candle {
+    &::before {
+      content: '\E820';
+    }
+  }   
+  &.crucifix {
+    &::before {
+      content: '\E821';
+    }
+  }   
+  &.glowStick {
+    &::before {
+      content: '\E828';
+    }
+  }   
+  &.headMountedCamera {
+    &::before {
+      content: '\E829';
+    }
+  }   
+  &.lighter {
+    &::before {
+      content: '\E822';
+    }
+  }   
+  &.motionSensor {
+    &::before {
+      content: '\E82A';
+    }
+  }   
+  &.parabolicMicrophone {
+    &::before {
+      content: '\E823';
+    }
+  }   
+  &.saltShaker {
+    &::before {
+      content: '\E824';
+    }
+  }   
+  &.sanityPills {
+    &::before {
+      content: '\E825';
+    }
+  }   
+  // &.smudgeSticks {
+  //   &::before {
+  //     content: '\E81D';
+  //   }
+  // }   
+  &.soundSensor {
+    &::before {
+      content: '\E82B';
+    }
+  }   
+  &.thermometer {
+    &::before {
+      content: '\E826';
+    }
+  }   
+  &.tripod {
+    &::before {
+      content: '\E827';
+    }   
+  }
+}
+
+.menu-open {
+  overflow: hidden;
+
+  body {
+    overflow: hidden;
   }
 }
 

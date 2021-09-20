@@ -10,7 +10,8 @@ const messages = {
         toolsTitle: 'Tools',
         nameGhostTitle: 'Name ghosts',
         websTitle: 'Related websites',
-        languajeTitle: 'Languaje',
+        languageTitle: 'Language',
+        equipmentTitle: 'Equipment',
         nameGhost: 'Ghost',
         evidences: {
             title: {
@@ -21,7 +22,36 @@ const messages = {
                 ghostOrb:               'Ghost Orb',
                 freezingTemperatures:   'Freezing Temperatures',
                 spiritBox:              'Spirit Box',
-                dots:                   'D.O.T.S Projector'
+                dots:                   'D.O.T.S Projector',
+                photoCamera:            'Photo Camera',
+                videoCamera:            'Video Camera',
+                flashlightUV:           'UV Flashlight',
+                flashlight:             'Flashlight',
+                key:                    'Key',
+                objectiveBoard:         'Objective Board',
+                siteMap:                'Site Map',
+                sanityMonitor:          'Sanity Monitor',
+                siteActivityMonitor:    'Site Activity Monitor',
+                soundMonitor:           'Sound Monitor',
+                cameraSystem:           'Camera System',
+                ouija:                  'Ouija Board',
+                voodoo:                 'Voodoo Doll',
+                bone:                   'Bone Evidence',
+                candle: 'Candle',
+                crucifix: 'Crucifix',
+                glowStick: 'Glow Stick',
+                headMountedCamera: 'Head Mounted Camera',
+                lighter: 'Lighter',
+                motionSensor: 'Motion Sensor',
+                parabolicMicrophone: 'Parabolic Microphone',
+                saltShaker: 'Salt Shaker',
+                sanityPills: 'Sanity Pills',
+                smudgeSticks: 'Smudge Sticks',
+                soundSensor: 'Sound Sensor',
+                strongFlashlight: 'Strong Flashlight',
+                thermometer: 'Thermometer',
+                tripod: 'Tripod',
+
             },
             desc: {
                 emf: 'Some ghosts will leave EMF traces near them that will show up on an EMF Reader as level 5.',
@@ -34,6 +64,12 @@ const messages = {
             }
         },
         tools: {
+            types: {
+                starter: 'Starter equipment',
+                van: 'Van equipment',
+                onsite: 'Onsite equipment',
+                extra: 'Extra equipment'
+            },
             title: {
                 ghostWriting: 'Ghost writing Book',
                 ouija: 'Ouija Board',
@@ -110,7 +146,8 @@ const messages = {
         toolsTitle: 'Herramientas',
         nameGhostTitle: 'Nombre fantasmas',
         websTitle: 'Webs relacionadas',
-        languajeTitle: 'Idioma',
+        languageTitle: 'Idioma',
+        equipmentTitle: 'Equipameinto',
         nameGhost: 'Fantasmas',
         evidences: {
             title: {
@@ -121,7 +158,35 @@ const messages = {
                 ghostOrb: 'Orbes',
                 freezingTemperatures: 'Temperatura bajo cero',
                 spiritBox: 'Spirit Box',
-                dots: 'Proyector D.O.T.S'
+                dots: 'Proyector D.O.T.S',
+                photoCamera: 'Cámara de fotos',
+                videoCamera: 'Cámara de video',
+                flashlightUV: 'Linterna ultravioleta',
+                flashlight: 'Linterna',
+                key: 'Llave',
+                objectiveBoard: 'Pizarra de objetivos',
+                siteMap: 'Mapa del sitio',
+                sanityMonitor: 'Monitor de cordura',
+                siteActivityMonitor: 'Monitor de actividad del sitio',
+                soundMonitor: 'Monitor de sonido',
+                cameraSystem: 'Sistema de cámaras',
+                ouija: 'Table de Ouija',
+                voodoo: 'Muñeco de Voodoo',
+                bone: 'Pruebas óseas',
+                candle: 'Vela',
+                crucifix: 'Crucifijo',
+                glowStick: 'Barra luminosa',
+                headMountedCamera: 'Camara frontal',
+                lighter: 'Encendedor',
+                motionSensor: 'Sensor de movimiento',
+                parabolicMicrophone: 'Micrófono parabólico',
+                saltShaker: 'Sal',
+                sanityPills: 'Píldoras de cordura',
+                smudgeSticks: 'Varillas de Incienso',
+                soundSensor: 'Sensor de sonido',
+                strongFlashlight: 'Linterna potente',
+                thermometer: 'Termómetro',
+                tripod: 'Trípode',
             },
             desc: {
                 emf: 'El medidor de campos electromagnéticos (también llamado medidor EMF) detecta el rastro que dejan los fantasmas y podría alcanzar el nivel 5.',
@@ -134,6 +199,12 @@ const messages = {
             }
         },
         tools: {
+            types: {
+                starter: 'Equipamiento inicial',
+                van: 'Equipamiento en la furgoneta',
+                onsite: 'Equipamiento in situ',
+                extra: 'Equipamiento extra'
+            },
             title: {
                 ghostWriting: 'Escritura fantasma',
                 ouija: 'Ouija',
