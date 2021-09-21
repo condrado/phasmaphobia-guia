@@ -77,7 +77,7 @@
     </div>
     <div class="m-menu__btn-version" v-bind:class="{ show: isOpen }">
       <button type="button" @click="refreshPage()">
-          <span class="version">0.12.1</span>
+          <span class="version">0.12.2</span>
       </button>
     </div>
   </div>
