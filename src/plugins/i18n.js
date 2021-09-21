@@ -15,6 +15,7 @@ const messages = {
         nameGhost: 'Ghost',
         evidences: {
             title: {
+                all: 'All',
                 selectTrack:            'Select a track',
                 emf:                    'EMF level 5',
                 ghostWriting:           'Ghost writing Book',
@@ -61,6 +62,16 @@ const messages = {
                 freezingTemperatures: 'All ghosts make areas cold however some ghosts have been known to drop temperatures even further.',
                 spiritBox: 'Only certain ghosts will talk through a Spirit Box when asked a question with your voice. Make sure the lights are off.',
                 dots: 'A laser grid of light that can reveal the silhouette of a ghost.',
+                videoCamera: "A camera is set up to take videos of the paranormal. The camera streams live and can be viewed from the van's computer monitor. Night vision is available to facilitate detection of the paranormal.",
+                photoCamera: 'The Camera is equipment that is not used for gathering evidence. However, it may be required to complete additional objectives, daily challenges, or to acquire money from photo rewards upon finishing the investigation.',
+                flashlightUV: 'The UV Flashlight is used to detect ghostly Fingerprints and Footprints.',
+                flashlight: 'The Flashlights are your primary source of vision when in the dark, as without it, the pitch-black will engulf you. There are two flashlights at your disposal: the normal flashlight, and the strong flashlight',
+                key: 'This key allows us to enter the place with paranormal activity. It is located above the desk, next to the computer.',
+                objectiveBoard: "The objective board is located in the van. On this board we can find the list of objectives to be accomplished, the ghost's name and we can also find out if the ghost communicates with individuals or groups.",
+                siteMap: '',
+                sanityMonitor: '',
+                siteActivityMonitor: '',
+                soundMonitor: '',
             }
         },
         tools: {
@@ -151,6 +162,7 @@ const messages = {
         nameGhost: 'Fantasmas',
         evidences: {
             title: {
+                all: 'Todo',
                 selectTrack: 'Selecciona una pista',
                 emf: 'EMF nivel 5',
                 ghostWriting: 'Escritura fantasma',
@@ -196,6 +208,16 @@ const messages = {
                 freezingTemperatures: 'Todos los fantasmas hacen que una estancia esté fría, pero algunos de ellos pueden hacer que las temperaturas desciendan más de lo normal.',
                 spiritBox: 'Solo algunos fantasmas hablarán a través de una Spirit Box cuando les realices preguntas con tu voz. Asegúrate de que las luces están apagadas antes de usarlo.',
                 dots: 'Una red láser proyectada que puede revelar, la silueta de un fantasma.',
+                videoCamera: 'Una cámara está preparada para tomar videos de lo paranormal. La cámara transmite en directo y podemos verlo desde el monitor del ordenador de la furgoneta. Dispone de visión nocturna para facilitar la detección de lo paranormal',
+                photoCamera: 'La cámara es un equipo que no se utiliza para reunir pruebas. Sin embargo, puede ser necesaria para completar objetivos adicionales, desafíos diarios o para adquirir dinero de recompensas fotográficas al terminar la investigación.',
+                flashlightUV: 'La linterna UV se utiliza para detectar huellas dactilares y pisadas fantasmas.',
+                flashlight: 'Las linternas son tu principal fuente de visión cuando estás en la oscuridad, ya que sin ella, la oscuridad total te envolverá. Hay dos linternas a tu disposición: la linterna normal, y la linterna fuerte',
+                key: 'Esta llave nos permite entrar al lugar con actividad paranormal. Se encuentra encima del escritorio, al lado del ordenador.',
+                objectiveBoard: 'El tablero de objetivos se encuentra en la furgoneta. En este tablero podemos encontrar la lista de objetivos a cumplir, el nombre del fantasma y también podemos saber si el fantasma se comunica con personas solas o grupos. ',
+                siteMap: '',
+                sanityMonitor: '',
+                siteActivityMonitor: '',
+                soundMonitor: '',
             }
         },
         tools: {

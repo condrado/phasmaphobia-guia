@@ -6,6 +6,8 @@ import Tools from "./pages/tools.vue";
 import ReuniendoPruebas from "./pages/reuniendo-pruebas.vue";
 import NombreFantasma from "./pages/nombre-fantasma.vue";
 import WebsRelacionadas from "./pages/webs-relacionadas.vue";
+import EquipmentVan from "./pages/equipment-van.vue";
+import EquipmentStarter from "./pages/equipment-starter.vue";
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,18 @@ const routes = [
     path: vuePath + "nombre-fantasma",
     name: "nombre-fantasma",
     component: NombreFantasma
+  },
+  {
+    path: vuePath + "equipment-starter?:equipmentSt",
+    name: "equipment-starter",
+    props: true,
+    component: EquipmentStarter
+  },
+  {
+    path: vuePath + "equipment-van?:equipmentSt",
+    name: "equipment-van",
+    props: true,
+    component: EquipmentVan
   },
   {
     path: vuePath + "webs-relacionadas",

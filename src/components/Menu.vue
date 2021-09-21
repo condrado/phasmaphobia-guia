@@ -28,19 +28,23 @@
         <li v-if="menuList.equipment">
           <button class="m-menu__drop" type="button" @click="dropEquipment" v-bind:class="{ show: isOpenEquipment }">{{ $t(equipment.starter.name) }}</button>
           <div class="m-menu__list" v-if="isOpenEquipment">
-            <button class="m-menu__item" v-for="equip in equipment.starter.list" :key="equip.title" >
+            <template v-for="equip in equipment.starter.list">
+              <router-link class="link m-menu__item" :to="{name: urlEquipmentStarter, params: {equipmentSt: equip.iconClass}}" :key="equip.title">
                <i :class="equip.iconClass"></i>
                <span>{{ $t(equip.title) }}</span>
-            </button>
+              </router-link>
+            </template>
           </div>
         </li>
         <li v-if="menuList.equipmentVan">
           <button class="m-menu__drop" type="button" @click="dropEquipmentVan" v-bind:class="{ show: isOpenEquipmentVan }">{{ $t(equipment.van.name) }}</button>
           <div class="m-menu__list" v-if="isOpenEquipmentVan">
-            <button class="m-menu__item" v-for="equip in equipment.van.list" :key="equip.title" >
-               <i :class="equip.iconClass"></i>
-               <span>{{ $t(equip.title) }}</span>
-            </button>
+            <template v-for="equip in equipment.van.list">
+              <router-link class="link m-menu__item" :to="{name: urlEquipmentVan, params: {equipmentSt: equip.iconClass}}" :key="equip.title">
+                <i :class="equip.iconClass"></i>
+                <span>{{ $t(equip.title) }}</span>
+              </router-link>
+            </template>
           </div>
         </li>
         <li v-if="menuList.equipmentOnSite">
@@ -102,6 +106,8 @@ export default {
       urlReuniendoPruebas: path + 'reuniendo-pruebas',
       urlNombreFantasma: path + 'nombre-fantasma',
       urlWebsRelacionadas: path + 'webs-relacionadas',
+      urlEquipmentVan: 'equipment-van',
+      urlEquipmentStarter: 'equipment-starter',
       isOpenlanguage: false,
       isOpenEquipment: false,
       isOpenEquipmentVan: false,
@@ -193,7 +199,7 @@ export default {
         position: absolute;
         top: 0;
         right: -250px;
-        z-index: 1;
+        z-index: 2;
         -webkit-transition: right 0.5s ease;
         -moz-transition: right 0.5s ease;
         -o-transition: right 0.5s ease;
@@ -219,7 +225,6 @@ export default {
       -o-transition: right 0.5s ease;
       transition: right 0.5s ease;
       border-left: 1px dashed #808080;
-      overflow: scroll;
       border: 0;
       background-color: #222;
       background-image: url('../assets/images/bg-page.jpg');
@@ -249,6 +254,11 @@ export default {
       opacity: 1;
     }
 
+    &.close:not(:disabled):not(.disabled):hover, 
+    &.close:not(:disabled):not(.disabled):focus {
+      opacity: 1;
+    }
+
     i {
       vertical-align: middle;
       width: 26px;
@@ -258,6 +268,12 @@ export default {
       font-size: 26px;
       float: none;
       z-index: 1;
+
+      &.close:not(:disabled):not(.disabled):hover, 
+      &.close:not(:disabled):not(.disabled):focus {
+        opacity: 1;
+        color: #fff;
+      }
     }
   }
 
@@ -302,7 +318,7 @@ export default {
     -o-transition: right 0.5s ease;
     transition: right 0.5s ease;
     border-left: 1px dashed #808080;
-    overflow: scroll;
+    overflow-x: auto;
     z-index: 1;
 
     &.show {
@@ -331,6 +347,10 @@ export default {
     width: 100%;
     display: flex;
     line-height: 17px;
+
+    &.link {
+      display: flex;
+    }
 
     .flag-icon {
       margin-right: 8px;
