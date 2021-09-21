@@ -85,7 +85,7 @@
             },
             {
                "title": "evidences.title.flashlight",
-               "iconClass":"flashlight.flashlight",
+               "iconClass":"flashlight",
                "url": "",
                "img": "p-flashlight",
                "desc": "evidences.desc.flashlight",
