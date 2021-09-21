@@ -145,7 +145,7 @@ export default {
       this.dropLanguage()
     },
     refreshPage () {
-      this.$router.go(0)
+      this.$router.go()
     },
     dropLanguage () {
       this.isOpenlanguage = !this.isOpenlanguage 
