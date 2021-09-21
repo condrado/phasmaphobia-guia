@@ -296,6 +296,7 @@ export default {
       text-align: center;
       position: relative;
       content: '\E80B';
+      top: 1px;
     }
 
     &.show {
