@@ -3,10 +3,10 @@
         <h1 class="app-title">{{ $t('evidenceTitle') }}</h1>
         <dir class="m-content">
             <template v-for="(evidence) in evidenceData">
-                <article class="m-article" :key=evidence.title>
+                <article class="m-article col-12 col-lg-6" :key=evidence.title>
                     <h2>{{ $t(evidence.title) }}</h2>
                     <div class="m-content__p">
-                         <figure :class="'patch' + evidence.patch">
+                         <figure :class="'patch patch' + evidence.patch">
                             <img class="m-content__img" :src="require(`../assets/images/${evidence.img}.jpg`)" alt="f"/>
                         </figure>
                         <span>{{ $t(evidence.desc) }}</span>
@@ -30,7 +30,22 @@ export default {
         evidenceTitle: jsonData.evidenceTitle
     }
   },
-  methods: {}
+    methods: {
+        generateIndex (index, maxIndex) {
+            this.evidenceData.forEach(equipment => {
+                if (index === maxIndex) {
+                    index = 1
+                } else {
+                    index++
+                }
+
+                equipment.patch = index
+            });
+        }
+    },
+    beforeMount() {
+        this.generateIndex(0, 5)
+    }
 }
 </script>
 

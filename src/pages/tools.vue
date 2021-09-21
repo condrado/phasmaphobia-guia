@@ -3,10 +3,10 @@
         <h1 class="app-title">{{ $t('toolsTitle') }}</h1>
         <dir class="m-content">
             <template v-for="(instrument) in toolData">
-                <article class="m-article" :key=instrument.title>
+                <article class="m-article col-12 col-lg-6" :key=instrument.title>
                     <h2>{{ $t(instrument.title) }}</h2>
                     <div class="m-content__p">
-                        <figure :class="'patch' + instrument.patch">
+                        <figure :class="'patch patch' + instrument.patch">
                             <img class="m-content__img" :src="require(`../assets/images/${instrument.img}.jpg`)" alt="f"/>
                         </figure>
                         <span>{{instrument.desc}}</span>
@@ -21,14 +21,29 @@
 import jsonData from '../data/data.json'
 
 export default {
-  name: 'Tools',
-  components: {},
-  data() {
+    name: 'Tools',
+    components: {},
+    data() {
     return {
         toolData: jsonData.toolData,
     }
-  },
-  methods: {}
+    },
+    methods: {
+        generateIndex (index, maxIndex) {
+            this.toolData.forEach(equipment => {
+                if (index === maxIndex) {
+                    index = 1
+                } else {
+                    index++
+                }
+
+                equipment.patch = index
+            });
+        }
+    },
+    beforeMount() {
+        this.generateIndex(0, 5)
+    }
 }
 </script>
 
@@ -64,90 +79,6 @@ export default {
         h2 {
             border-bottom: 1px dashed #808080;
             font-size: 28px;
-        }
-    }
-
-    .m-article {
-        @media (min-width: 992px) {
-            width: 48%;
-        }
-
-        .patch1,
-        .patch2,
-        .patch3,
-        .patch4,
-        .patch5 {
-            position: relative;
-            min-width: 210px;
-            
-            &:before {
-                content: "";
-                left: 0;
-                top: 0;
-                width: 100%;
-                z-index: 1;
-                display: block;
-                position: absolute;
-                background-size: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-position: center top;
-            }
-        }
-
-        .patch1 {
-            min-height: 262px;
-
-            &:before {
-                background-image: url('../assets/images/patch-1b.png');
-            }
-
-            img {
-                left: 39px;
-                top: 44px;
-            }
-        }
-
-        .patch2 {
-            min-height: 252px;
-
-            &:before {
-                background-image: url('../assets/images/patch-2b.png');
-            }
-
-            img {
-                left: 31px;
-                top: 37px;
-            }
-        }
-
-        .patch3 {
-            min-height: 255px;
-
-            &:before {
-                background-image: url('../assets/images/patch-3b.png');
-            }
-
-            img {
-                left: 30px;
-                top: 30px;
-            }
-        }
-
-        .patch4 {
-            min-height: 205px;
-            
-            &:before {
-                background-image: url('../assets/images/patch-4b.png');
-            }
-        }
-
-        .patch5 {
-            min-height: 215px;
-            
-            &:before {
-                background-image: url('../assets/images/patch-5b.png');
-            }
         }
     }
 </style>
