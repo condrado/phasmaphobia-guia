@@ -548,8 +548,16 @@ i {
 .menu-open {
   overflow: hidden;
 
+  @media (min-width: 768px) {
+    overflow: auto;
+  }
+
   body {
     overflow: hidden;
+
+    @media (min-width: 768px) {
+      overflow: auto;
+    }
   }
 }
 
