@@ -26,7 +26,9 @@
           <router-link class="link" :to="{path: urlWebsRelacionadas}">{{ $t('websTitle') }}</router-link>
         </li>
         <li v-if="menuList.equipment">
-          <button class="m-menu__drop" type="button" @click="dropEquipment" v-bind:class="{ show: isOpenEquipment }">{{ $t(equipment.starter.name) }}</button>
+          <button class="m-menu__drop" type="button" @click="dropEquipment" v-bind:class="{ show: isOpenEquipment }">
+            <span>{{ $t(equipment.starter.name) }}</span>
+          </button>
           <div class="m-menu__list" v-if="isOpenEquipment">
             <template v-for="equip in equipment.starter.list">
               <router-link class="link m-menu__item" :to="{name: urlEquipmentStarter, params: {equipmentSt: equip.iconClass}}" :key="equip.title">
@@ -37,7 +39,9 @@
           </div>
         </li>
         <li v-if="menuList.equipmentVan">
-          <button class="m-menu__drop" type="button" @click="dropEquipmentVan" v-bind:class="{ show: isOpenEquipmentVan }">{{ $t(equipment.van.name) }}</button>
+          <button class="m-menu__drop" type="button" @click="dropEquipmentVan" v-bind:class="{ show: isOpenEquipmentVan }">
+            <span>{{ $t(equipment.van.name) }}</span>
+          </button>
           <div class="m-menu__list" v-if="isOpenEquipmentVan">
             <template v-for="equip in equipment.van.list">
               <router-link class="link m-menu__item" :to="{name: urlEquipmentVan, params: {equipmentSt: equip.iconClass}}" :key="equip.title">
@@ -48,7 +52,9 @@
           </div>
         </li>
         <li v-if="menuList.equipmentOnSite">
-          <button class="m-menu__drop" type="button" @click="dropEquipmentOnSite" v-bind:class="{ show: isOpenEquipmentOnSite }">{{ $t(equipment.onSite.name) }}</button>
+          <button class="m-menu__drop" type="button" @click="dropEquipmentOnSite" v-bind:class="{ show: isOpenEquipmentOnSite }">
+            <span>{{ $t(equipment.onSite.name) }}</span>
+          </button>
           <div class="m-menu__list" v-if="isOpenEquipmentOnSite">
             <button class="m-menu__item" v-for="equip in equipment.onSite.list" :key="equip.title" >
                <i :class="equip.iconClass"></i>
@@ -57,7 +63,9 @@
           </div>
         </li>
         <li v-if="menuList.equipmentExtra">
-          <button class="m-menu__drop" type="button" @click="dropEquipmentExtra" v-bind:class="{ show: isOpenEquipmentExtra }">{{ $t(equipment.extra.name) }}</button>
+          <button class="m-menu__drop" type="button" @click="dropEquipmentExtra" v-bind:class="{ show: isOpenEquipmentExtra }">
+            <span>{{ $t(equipment.extra.name) }}</span>
+          </button>
           <div class="m-menu__list" v-if="isOpenEquipmentExtra">
             <button class="m-menu__item" v-for="equip in equipment.extra.list" :key="equip.title" >
                <i :class="equip.iconClass"></i>
@@ -66,7 +74,9 @@
           </div>
         </li>
         <li v-if="menuList.language">
-          <button class="m-menu__drop" type="button" @click="dropLanguage">{{ $t('languageTitle') }}</button>
+          <button class="m-menu__drop" type="button" @click="dropLanguage">
+            <span>{{ $t('languageTitle') }}</span>
+          </button>
           <div class="m-menu__list" v-if="isOpenlanguage">
             <button class="m-menu__item" v-for="entry in languages" :key="entry.title" @click="changeLocale(entry.language)">
               <flag :iso="entry.flag" v-bind:squared="false" /> {{entry.title}}
@@ -288,6 +298,7 @@ export default {
     width: 100%;
     text-align: left;
     line-height: 17px;
+    align-items: flex-start;
 
     &::after {
       font-family: 'Standard Icons';
