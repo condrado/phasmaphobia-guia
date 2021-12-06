@@ -11,6 +11,7 @@ const messages = {
         nameGhostTitle: 'Name ghosts',
         websTitle: 'Related websites',
         languageTitle: 'Language',
+        version: '0.12.5',
         equipmentTitle: 'Equipment',
         nameGhost: 'Ghost',
         evidences: {
@@ -108,6 +109,10 @@ const messages = {
                     yokai: 'yokai',
                     goryo: 'goryo',
                     myling: 'myling',
+                    onryo: 'onryo',
+                    twins: 'the twins',
+                    raiju: 'raiju',
+                    obake: 'obake'
                 },
                 fortress: {
                     spirit: 'Nothing',
@@ -126,6 +131,11 @@ const messages = {
                     yokai: 'Talking near a Yokai will anger it and increase its chance of attacking.',
                     goryo: 'A Goryo will usually only show itself on camera if there are no people nearby.',
                     myling: 'A Myling is known to be quieter when hunting.',
+
+                    onryo: 'Extinguishing a flame can cause an Onryo to attack.',
+                    twins: 'Either twins can be angered and initiate an attack on their prey.',
+                    raiju: 'A Raiju can siphon power from nearby electrical devices, making it move faster.',
+                    obake: 'When interacting with the environment, an Obake will rarely leave a trace.'
                 },
                 weakness: {
                     spirit: 'Using Smudge Sticks on a Spirit will stop it attacking for a long period of time.',
@@ -144,6 +154,11 @@ const messages = {
                     yokai: 'When hunting, a Yokai can only hear voices close to it.',
                     goryo: 'They are rarely seen far from their place of death.',
                     myling: 'Mylings more frequently make paranormal sounds.',
+
+                    onryo: 'When threatened, this ghost will be less likely to hunt.',
+                    twins: 'The Twins will often interact with the environment at the same time.',
+                    raiju: 'Raiju are constantly disrupting electrinic equipment when attacking, making it easier to track.',
+                    obake: 'Sometimes this ghost will shapeshift, leaving behind unique evidence.'
                 }
             }
         },
@@ -158,6 +173,7 @@ const messages = {
         nameGhostTitle: 'Nombre fantasmas',
         websTitle: 'Webs relacionadas',
         languageTitle: 'Idioma',
+        version: '0.12.5',
         equipmentTitle: 'Equipameinto',
         nameGhost: 'Fantasmas',
         evidences: {
@@ -254,6 +270,10 @@ const messages = {
                     yokai: 'yokai',
                     goryo: 'goryo',
                     myling: 'myling',
+                    onryo: 'onryo',
+                    twins: 'los gemelos',
+                    raiju: 'raiju',
+                    obake: 'obake'
                 },
                 fortress: {
                     spirit: 'Ninguno.',
@@ -268,10 +288,14 @@ const messages = {
                     demon: 'Son los fantasmas que atacan con mayor frecuencia.',
                     yurei: 'Dañan especialmente la cordura de los jugadores.',
                     oni: 'Mientras más jugadores hay cerca de él se vuelve más activo y agresivo.',
-                    hantu: 'Más rápido con temperaturas bajas',
+                    hantu: 'Más rápido con temperaturas bajas.',
                     yokai: 'Hablar cerca de él aumenta las posibilidades de que ataque.',
-                    goryo: 'Se mostrará en una camara solo si no hay nadie cerca',
-                    myling: 'Son silenciosos atacando',
+                    goryo: 'Se mostrará en una camara solo si no hay nadie cerca.',
+                    myling: 'Son silenciosos atacando.',
+                    onryo: 'Apagar una llama puede provocar que Onryo ataque.',
+                    twins: 'Cada uno de los gemelos puede enfadarse e iniciar un ataque sobre su presa.',
+                    raiju: 'Obtiene su poder de los dispositivos eléctricos cecanos, haciendo que se mueva mas rápido.',
+                    obake: 'Cuando interactúan con el entorno, rara vez dejaran rastro.'
                 },
                 weakness: {
                     spirit: 'Las varitas de incienso impiden que ataque durante un tiempo.',
@@ -284,12 +308,16 @@ const messages = {
                     revenant: 'Se vuelve lento cuando su presa se esconde.',
                     shade: 'No ataca cuando hay varios jugadores juntos.',
                     demon: 'Si hacemos preguntas exitosas con la Ouija no perderemos cordura.',
-                    yurei: 'Las varitas de incienso evitan su presencia durante un gran tiempo',
+                    yurei: 'Las varitas de incienso evitan su presencia durante un gran tiempo.',
                     oni: 'Al ser más activos son más fáciles de identificar.',
-                    hantu: 'Más lento con temperaturas calientes',
+                    hantu: 'Más lento con temperaturas calientes.',
                     yokai: 'Atacando, solo escucha las voces cercanas a él.',
-                    goryo: 'Raramente se les ve lejos del lugar donde murieron',
-                    myling: 'Suelen hacer muscho ruido',
+                    goryo: 'Raramente se les ve lejos del lugar donde murieron.',
+                    myling: 'Suelen hacer muscho ruido.',
+                    onryo: 'Si se siente amenazado, atacará con menos frecuencia.',
+                    twins: 'Suelen interactuar con el entorno al mismo tiempo.',
+                    raiju: 'Debido a que siempre interfiere con los aparatos electrónicos, es fácil de rastrear cuando ataca.',
+                    obake: 'A veces cambiarán de forma, revelando asi pruebas indispensables.'
                 }
             },
         },

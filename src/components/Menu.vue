@@ -87,7 +87,7 @@
     </div>
     <div class="m-menu__btn-version" v-bind:class="{ show: isOpen }">
       <button type="button" @click="refreshPage()">
-          <span class="version">0.12.4</span>
+          <span class="version">{{ $t('version') }}</span>
       </button>
     </div>
   </div>

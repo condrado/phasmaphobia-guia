@@ -761,6 +761,98 @@
             ],
             "img": "f-myli",
             "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"6-4-5",
+            "tipo":"cards.ghost.type.onryo",
+            "fortaleza":"cards.ghost.fortress.onryo",
+            "debilidad":"cards.ghost.weakness.onryo",
+            "pista": [
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-onry",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-6-5",
+            "tipo":"cards.ghost.type.twins",
+            "fortaleza":"cards.ghost.fortress.twins",
+            "debilidad":"cards.ghost.weakness.twins",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.spiritBox",
+                  "class": "spiritbox"
+               },
+               {
+                  "title": "evidences.title.freezingTemperatures",
+                  "class": "temp"
+               }
+            ],
+            "img": "f-twin",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-4-7",
+            "tipo":"cards.ghost.type.raiju",
+            "fortaleza":"cards.ghost.fortress.raiju",
+            "debilidad":"cards.ghost.weakness.raiju",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               },
+               {
+                  "title": "evidences.title.dots",
+                  "class": "proyector"
+               }
+            ],
+            "img": "f-raij",
+            "patch": "1"
+         },
+         {
+            "isActive":true,
+            "pistaId":"1-3-4",
+            "tipo":"cards.ghost.type.obake",
+            "fortaleza":"cards.ghost.fortress.obake",
+            "debilidad":"cards.ghost.weakness.obake",
+            "pista": [
+               {
+                  "title": "evidences.title.emf",
+                  "class": "emf"
+               },
+               {
+                  "title": "evidences.title.fingerprints",
+                  "class": "handprint"
+               },
+               {
+                  "title": "evidences.title.ghostOrb",
+                  "class": "orbes"
+               }
+            ],
+            "img": "f-obak",
+            "patch": "1"
          }
       ]
    },
